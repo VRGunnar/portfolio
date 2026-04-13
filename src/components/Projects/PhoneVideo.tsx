@@ -26,7 +26,6 @@ export default function PhoneVideo() {
             width: "100%",
             height: "100%",
             borderRadius: 24,
-            background: "#000",
           }}
           referrerPolicy="origin"
           allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen; clipboard-write"

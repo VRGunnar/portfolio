@@ -110,7 +110,7 @@ export const ProjectScreenWrap = styled.div`
 
 export const MiniPhone = styled.div<{ $bg: string; $back?: boolean }>`
   width: 210px;
-  height: 426px;
+  height: 423px;
   border-radius: 38px;
   padding: 14px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -130,8 +130,8 @@ export const MiniPhoneScreen = styled.div<{ $gradient: string }>`
   background: ${({ $gradient }) => $gradient};
   display: flex;
   flex-direction: column;
-  padding: 0.9rem 0.6rem 0.6rem;
-  gap: 0.45rem;
+  padding: 0;
+  gap: 0;
   position: relative;
 `;
 
