@@ -11,10 +11,26 @@ export const MarqueeSection = styled.div`
 
 export const MarqueeTrack = styled.div`
   display: flex;
-  gap: 3rem;
-  animation: marquee 22s linear infinite;
+  gap: 3.5rem;
   white-space: nowrap;
   width: max-content;
+  animation: marquee 22s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+`;
+
+export const MarqueeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 `;
 
 export const MarqueeItem = styled.span`
@@ -26,7 +42,7 @@ export const MarqueeItem = styled.span`
   color: ${theme.colors.stone};
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   flex-shrink: 0;
 `;
 

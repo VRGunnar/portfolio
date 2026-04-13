@@ -1,3 +1,9 @@
+export const DisclaimerText = styled.div`
+  font-size: 0.82em;
+  color: #a08c6b;
+  margin-bottom: 1rem;
+  font-style: italic;
+`;
 import styled from "styled-components";
 import { theme } from "../../theme";
 
@@ -99,14 +105,14 @@ export const ProjectScreenWrap = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 2.5rem 2rem;
+  padding: 0.5rem 0.5rem;
 `;
 
 export const MiniPhone = styled.div<{ $bg: string; $back?: boolean }>`
-  width: 120px;
-  height: 244px;
-  border-radius: 22px;
-  padding: 7px;
+  width: 210px;
+  height: 426px;
+  border-radius: 38px;
+  padding: 14px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   background: ${({ $bg }) => $bg};
   position: ${({ $back }) => ($back ? "absolute" : "relative")};
@@ -119,7 +125,7 @@ export const MiniPhone = styled.div<{ $bg: string; $back?: boolean }>`
 export const MiniPhoneScreen = styled.div<{ $gradient: string }>`
   width: 100%;
   height: 100%;
-  border-radius: 16px;
+  border-radius: 24px;
   overflow: hidden;
   background: ${({ $gradient }) => $gradient};
   display: flex;
@@ -143,8 +149,8 @@ export const MiniPhoneNotch = styled.div`
 
 export const ProjTagBadge = styled.div`
   position: absolute;
-  bottom: 1.2rem;
-  left: 1.2rem;
+  bottom: 0.8rem;
+  left: 0.8rem;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -203,7 +209,7 @@ export const ProjectDesc = styled.p`
   color: ${theme.colors.bark};
   font-weight: 300;
   line-height: 1.75;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
 export const ProjectTags = styled.div`

@@ -17,6 +17,7 @@ import {
   ProjectCategory,
   ProjectTitle,
   ProjectDesc,
+  DisclaimerText,
   ProjectTags,
   Tag,
   ProjectMeta,
@@ -32,6 +33,7 @@ import {
   ProjectCardBody,
 } from "./styles";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import PhoneVideo from "./PhoneVideo";
 
 type Category = "all" | "mobile" | "fullstack";
 
@@ -106,7 +108,7 @@ export default function Projects() {
         <ProjectFeatured $hidden={isHidden("mobile")}>
           <ProjectFeaturedVisual $bg="linear-gradient(135deg,#1a1008 0%,#3b2510 40%,#6b3a1f 100%)">
             <ProjectScreenWrap>
-              <MiniPhone $bg="#1c1008" $back>
+              {/* <MiniPhone $bg="#1c1008" $back>
                 <MiniPhoneScreen $gradient="linear-gradient(160deg,#2a1508,#3d2010)">
                   <div
                     style={{
@@ -126,9 +128,10 @@ export default function Projects() {
                     }}
                   />
                 </MiniPhoneScreen>
-              </MiniPhone>
-              <MiniPhone $bg="#0e0806">
-                <MiniPhoneScreen $gradient="linear-gradient(160deg,#1a0e06,#2c1a0a)">
+              </MiniPhone> */}
+              <PhoneVideo />
+              {/* <MiniPhone $bg="#0e0806"> */}
+              {/* <MiniPhoneScreen $gradient="linear-gradient(160deg,#1a0e06,#2c1a0a)">
                   <MiniPhoneNotch />
                   <div style={{ marginTop: "18px" }}>
                     <div
@@ -174,7 +177,7 @@ export default function Projects() {
                     />
                   </div>
                 </MiniPhoneScreen>
-              </MiniPhone>
+              </MiniPhone> */}
             </ProjectScreenWrap>
             <ProjTagBadge>React Native · Expo · Node.js</ProjTagBadge>
           </ProjectFeaturedVisual>
@@ -188,12 +191,21 @@ export default function Projects() {
               renting easier, more transparent, and stress-free for both
               parties.
             </ProjectDesc>
+            <DisclaimerText>
+              This project is a work in progress. Demo data is used and the app
+              is still in a rough state.
+            </DisclaimerText>
             <ProjectTags>
-              {["React Native", "Expo", "MongoDB", "Node.js", "Express", "Supabase"].map(
-                (t) => (
-                  <Tag key={t}>{t}</Tag>
-                ),
-              )}
+              {[
+                "React Native",
+                "Expo",
+                "MongoDB",
+                "Node.js",
+                "Express",
+                "Supabase",
+              ].map((t) => (
+                <Tag key={t}>{t}</Tag>
+              ))}
             </ProjectTags>
             <ProjectMeta>
               <div>

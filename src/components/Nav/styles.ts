@@ -66,11 +66,13 @@ export const NavCta = styled(NavLink)`
   border-radius: 2px;
   transition:
     background 0.2s,
-    color 0.2s;
+    color 0.2s,
+    border-radius 0.25s;
 
   &:hover {
     background: ${theme.colors.accent};
     color: ${theme.colors.cream} !important;
+    border-radius: 18px;
   }
 `;
 

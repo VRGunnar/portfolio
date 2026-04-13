@@ -140,13 +140,16 @@ export const BtnPrimary = styled.a`
   font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  transition: all 0.25s;
+  transition:
+    all 0.25s,
+    border-radius 0.25s;
   border: 1.5px solid ${theme.colors.soil};
 
   &:hover {
     background: ${theme.colors.accent};
     border-color: ${theme.colors.accent};
     transform: translateY(-2px);
+    border-radius: 18px;
   }
 `;
 
@@ -159,12 +162,15 @@ export const BtnSecondary = styled.a`
   font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  transition: all 0.25s;
+  transition:
+    all 0.25s,
+    border-radius 0.25s;
   border: 1.5px solid ${theme.colors.sand};
 
   &:hover {
     border-color: ${theme.colors.clay};
     transform: translateY(-2px);
+    border-radius: 18px;
   }
 `;
 
