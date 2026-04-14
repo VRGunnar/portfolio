@@ -9,9 +9,6 @@ import {
   ProjectFeatured,
   ProjectFeaturedVisual,
   ProjectScreenWrap,
-  MiniPhone,
-  MiniPhoneScreen,
-  MiniPhoneNotch,
   ProjTagBadge,
   ProjectFeaturedInfo,
   ProjectCategory,
@@ -23,14 +20,6 @@ import {
   ProjectMeta,
   MetaLabel,
   MetaValue,
-  ProjectLink,
-  ProjectsGrid,
-  ProjectCard,
-  ProjectCardVisual,
-  CardGlow,
-  TinyPhone,
-  TinyPhoneScreen,
-  ProjectCardBody,
 } from "./styles";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import PhoneVideo from "./PhoneVideo";
@@ -59,18 +48,18 @@ function Reveal({
   );
 }
 
-const MINI_BARS = {
-  full: { width: "100%" },
-  half: { width: "60%" },
-  threeQ: { width: "78%" },
-};
+// const MINI_BARS = {
+//   full: { width: "100%" },
+//   half: { width: "60%" },
+//   threeQ: { width: "78%" },
+// };
 
-const BAR_STYLE = (color: string) => ({
-  height: "4px",
-  borderRadius: "8px",
-  marginBottom: "3px",
-  background: color,
-});
+// const BAR_STYLE = (color: string) => ({
+//   height: "4px",
+//   borderRadius: "8px",
+//   marginBottom: "3px",
+//   background: color,
+// });
 
 export default function Projects() {
   const [active, setActive] = useState<Category>("all");

@@ -1,10 +1,4 @@
-import {
-  MarqueeSection,
-  MarqueeTrack,
-  MarqueeItem,
-  MarqueeDot,
-  MarqueeWrapper,
-} from "./styles";
+import { MarqueeSection, MarqueeTrack, MarqueeItem } from "./styles";
 import {
   React as ReactIcon,
   NodeJs,

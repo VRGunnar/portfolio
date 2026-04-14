@@ -11,7 +11,6 @@ import {
   HeroRight,
   HeroLottieViewport,
 } from "./styles";
-import PhoneVisual from "../PhoneVisual";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const NAV_HEIGHT = 64;
@@ -36,8 +35,8 @@ export default function Hero() {
           <em>beautifully</em> built.
         </HeroH1>
         <HeroSub>
-          I design and engineer web & mobile applications that your customers actually
-          love — end-to-end, from concept to the App Store.
+          I design and engineer web & mobile applications that your customers
+          actually love — end-to-end, from concept to the App Store.
         </HeroSub>
         <HeroActions>
           <BtnPrimary
