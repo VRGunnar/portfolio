@@ -19,14 +19,14 @@ const sk = {
     languageLabel: "Jazyk",
   },
   hero: {
-    eyebrow: "Mobilny a full stack vyvojar",
-    titleLine1: "Vas napad na aplikaciu,",
-    titleEmphasis: "krasne",
-    titleLine2: "zrealizovany.",
+    eyebrow: "Aplikácie navrhnuté s víziou. Vyvinuté s presnosťou.",
+    titleLine1: "Staviame webové a mobilné aplikácie",
+    titleEmphasis: "od nápadu",
+    titleLine2: "až po hotový produkt.",
     subtitle:
-      "Navrhujem a vyvijam webove aj mobilne aplikacie, ktore maju ludia naozaj radi - end-to-end, od prveho napadu az po App Store.",
-    primaryCta: "Zacat projekt ->",
-    secondaryCta: "Pozriet si moju pracu",
+      "Navrhujeme a vyvíjame webové aj mobilné aplikácie, ktoré majú ľudia radi – od prvotného nápadu až po spustenie.",
+    primaryCta: "Začať projekt ->",
+    secondaryCta: "Pozrieť si moju prácu",
   },
   marquee: {
     items: {
@@ -47,40 +47,41 @@ const sk = {
     },
   },
   about: {
-    label: "Co robim",
-    title: "Kompletne mobilne riesenia pre firmy, ktore chcu rast.",
+    label: "Čo robím",
+    title:
+      "Staviame webové a mobilné aplikácie od nápadu až po hotový produkt.",
     values: {
       crossPlatform: {
-        title: "Cross-platform aplikacie",
-        desc: "Jedna codebase, dva store. Staviam React Native + Expo aplikacie, ktore na iOS aj Androide posobia skutocne nativne - bez kompromisov.",
+        title: "📱 Cross-platform aplikácie",
+        desc: "Jedna báza, dve platformy. Vytváram React Native + Expo aplikácie, ktoré fungujú na iOS aj Android.",
       },
       fullStack: {
-        title: "Full stack backend",
-        desc: "Appka potrebuje pevny zaklad. Budujem spolahlive API a real-time backendy v Node, Express, MongoDB a GraphQL.",
+        title: "⚡ Full-stack architektúra",
+        desc: "Každá aplikácia stojí na pevnom základe. Navrhujem a budujem škálovateľné API a realtime backendy s využitím Node.js, Expressu, MongoDB a GraphQL.",
       },
       launch: {
-        title: "Od napadu po spustenie",
-        desc: "Riesim cely proces - discovery, dizajn, vyvoj, deployment aj odoslanie do App Storu. Vy sa sustredite na biznis.",
+        title: "🚀 Od vízie po spustenie",
+        desc: "Zastrešujeme celý proces od návrhu cez dizajn a vývoj až po nasadenie a spustenie. Vy sa môžete sústrediť na svoj biznis.",
       },
     },
   },
   projects: {
-    label: "Vybrane projekty",
-    titleLine1: "Appky robene poctivo,",
-    titleLine2: "vydane s istotou.",
+    label: "Vybrané projekty",
+    titleLine1: "Aplikácie navrhnuté s víziou,",
+    titleLine2: "vyvinuté s presnosťou.",
     filters: {
-      all: "Vsetko",
-      mobile: "Mobilne",
+      all: "Všetko",
+      mobile: "Mobilné",
       fullstack: "Fullstack",
     },
-    featuredBadge: "React Native · Expo · Node.js",
-    featuredCategory: "Vybrane · Mobilna aplikacia",
-    featuredTitle:
-      "Aplikacia pre prenajimatelov a najomnikov - mobilna platforma",
+    featuredBadge:
+      "React Native · Expo · MongoDB · Node.js · Express · Supabase",
+    featuredCategory: "Prenajímateľ/Nájomca — mobilná platforma",
+    featuredTitle: "Prenajímateľ/Nájomca — mobilná platforma",
     featuredDesc:
-      "Moderna mobilna aplikacia, ktora prepaja prenajimatelov a najomnikov a zjednodusuje kazdy krok prenajmu. Od inzeratov a ziadosti cez platby, udrzbu az po komunikaciu robi prenajom jednoduchsym, transparentnejsim a bez stresu pre obe strany.",
+      "Moderná aplikácia, ktorá prepája prenajímateľov a nájomníkov a zjednodušuje celý proces prenájmu. Od ponúk a žiadostí až po platby, správu údržby a komunikáciu — všetko na jednom mieste pre transparentnejší a bezproblémový prenájom.",
     featuredDisclaimer:
-      "Tento projekt je vo vyvoji. V deme su pouzite testovacie data a aplikacia je stale v hrubsom stave.",
+      "Projekt je stále vo vývoji. Aplikácia používa demo dáta a je v počiatočnej fáze.",
     tags: {
       reactNative: "React Native",
       expo: "Expo",
@@ -91,9 +92,9 @@ const sk = {
     },
     meta: {
       platformLabel: "Platforma",
-      platformValue: "iOS a Android",
-      statusLabel: "Stav",
-      statusValue: "Vo vyvoji",
+      platformValue: "iOS & Android",
+      statusLabel: "Status",
+      statusValue: "v procese",
     },
   },
   stack: {
@@ -117,35 +118,34 @@ const sk = {
   },
   process: {
     label: "Ako to prebieha",
-    title: "Jasna cesta od prveho rozhovoru po spustenie.",
+    title: "Jasná cesta od nápadu až po spustenie.",
     steps: {
       one: {
         num: "01",
-        title: "Discovery call",
-        desc: "Prejdeme vas napad, ciele a timeline. Polozim spravne otazky, aby bol rozsah projektu jasny.",
+        title: "Úvodná konzultácia",
+        desc: "Prejdeme si váš nápad, ciele aj časový rámec. Kladiem správne otázky, aby bol projekt jasne a presne definovaný už od začiatku.",
       },
       two: {
         num: "02",
-        title: "Navrh a plan",
-        desc: "Dostanete detailny navrh s milnikmi, harmonogramom a fixnou alebo retainer cenou - bez prekvapeni.",
+        title: "Návrh a plán",
+        desc: "Získate prehľadný návrh riešenia s míľnikmi, časovým plánom a fixnou alebo retainer cenou — bez nečakaných prekvapení.",
       },
       three: {
         num: "03",
-        title: "Build a iteracie",
-        desc: "Vyvijam v kratkych sprintoch s pravidelnymi ukazkami. Mate prehlad bez zahltenia technickymi detailmi.",
+        title: "Vývoj a iterácie",
+        desc: "Aplikáciu vyvíjam v krátkych cykloch s pravidelnými ukážkami. Máte prehľad o postupe bez zbytočného technického šumu.",
       },
       four: {
         num: "04",
-        title: "Ship a podpora",
-        desc: "Odoslanie do App Storu, deployment a podpora po spusteni, aby produkt bezal spolahlivo aj nadalej.",
+        title: "Spustenie a podpora",
+        desc: "Zabezpečím nasadenie, vydanie v obchodoch a post-launch podporu, aby váš produkt fungoval spoľahlivo aj po spustení.",
       },
     },
   },
   cta: {
-    label: "Podme spolupracovat",
-    title: "Mate napad na aplikaciu? Podme ho zrealizovat.",
-    subtitle:
-      "Napiste mi o projekte a do 24 hodin sa ozvem s prvou spatnou vazbou a dalsimi krokmi.",
+    label: "Poďme spolupracovať",
+    title: "Máte nápad na aplikáciu? Poďme ho zrealizovať.",
+    subtitle: "Odpovedám do 24 hodín.",
   },
   footer: {
     role: "Full stack a mobilny vyvojar",
