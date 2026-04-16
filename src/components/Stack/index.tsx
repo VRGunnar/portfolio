@@ -20,6 +20,7 @@ import {
   Jest,
 } from "developer-icons";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useTranslation } from "react-i18next";
 
 const STACK = [
   {
@@ -30,14 +31,14 @@ const STACK = [
         style={{ width: 32, height: 32 }}
       />
     ),
-    name: "Expo",
+    nameKey: "expo",
     featured: true,
   },
-  { icon: <React size={32} />, name: "React Native", featured: true },
-  { icon: <React size={32} />, name: "React" },
-  { icon: <NodeJs size={32} />, name: "Node.js" },
-  { icon: <ExpressJsDark size={32} />, name: "Express" },
-  { icon: <GraphQL size={32} />, name: "GraphQL" },
+  { icon: <React size={32} />, nameKey: "reactNative", featured: true },
+  { icon: <React size={32} />, nameKey: "react" },
+  { icon: <NodeJs size={32} />, nameKey: "nodeJs" },
+  { icon: <ExpressJsDark size={32} />, nameKey: "express" },
+  { icon: <GraphQL size={32} />, nameKey: "graphQl" },
   {
     icon: (
       <img
@@ -46,10 +47,10 @@ const STACK = [
         style={{ width: 32, height: 32, objectFit: "contain" }}
       />
     ),
-    name: "Sequelize",
+    nameKey: "sequelize",
   },
-  { icon: <MongoDB size={32} />, name: "MongoDB" },
-  { icon: <PostgreSQL size={32} />, name: "Postgres" },
+  { icon: <MongoDB size={32} />, nameKey: "mongoDb" },
+  { icon: <PostgreSQL size={32} />, nameKey: "postgres" },
   {
     icon: (
       <img
@@ -58,11 +59,11 @@ const STACK = [
         style={{ width: 32, height: 32, objectFit: "contain" }}
       />
     ),
-    name: "TypeORM",
+    nameKey: "typeOrm",
   },
-  { icon: <GoogleCloud size={32} />, name: "GCP" },
-  { icon: <Redis size={32} />, name: "Redis" },
-  { icon: <Jest size={32} />, name: "Jest" },
+  { icon: <GoogleCloud size={32} />, nameKey: "gcp" },
+  { icon: <Redis size={32} />, nameKey: "redis" },
+  { icon: <Jest size={32} />, nameKey: "jest" },
 ];
 
 function Reveal({ children }: { children: React.ReactNode }) {
@@ -82,22 +83,24 @@ function Reveal({ children }: { children: React.ReactNode }) {
 }
 
 export default function Stack() {
+  const { t } = useTranslation();
+
   return (
     <StackSection id="stack">
       <StackInner>
         <Reveal>
-          <StackSectionLabel>Tech stack</StackSectionLabel>
+          <StackSectionLabel>{t("stack.label")}</StackSectionLabel>
         </Reveal>
         <Reveal>
-          <StackH2>Built with tools that scale.</StackH2>
+          <StackH2>{t("stack.title")}</StackH2>
         </Reveal>
         <Reveal>
           <StackGrid>
             {STACK.map((item) => (
-              <StackItem key={item.name} $featured={item.featured}>
+              <StackItem key={item.nameKey} $featured={item.featured}>
                 <StackItemIcon>{item.icon}</StackItemIcon>
                 <StackItemName $featured={item.featured}>
-                  {item.name}
+                  {t(`stack.items.${item.nameKey}`)}
                 </StackItemName>
               </StackItem>
             ))}

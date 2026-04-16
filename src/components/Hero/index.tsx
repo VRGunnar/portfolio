@@ -12,6 +12,7 @@ import {
   HeroLottieViewport,
 } from "./styles";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useTranslation } from "react-i18next";
 
 const NAV_HEIGHT = 64;
 
@@ -24,20 +25,19 @@ function scrollTo(id: string) {
 }
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <HeroSection id="hero">
       <HeroBgShape />
       <HeroLeft>
-        <HeroEyebrow>Mobile &amp; Full Stack Engineer</HeroEyebrow>
+        <HeroEyebrow>{t("hero.eyebrow")}</HeroEyebrow>
         <HeroH1>
-          Your app idea,
+          {t("hero.titleLine1")}
           <br />
-          <em>beautifully</em> built.
+          <em>{t("hero.titleEmphasis")}</em> {t("hero.titleLine2")}
         </HeroH1>
-        <HeroSub>
-          I design and engineer web & mobile applications that your customers
-          actually love — end-to-end, from concept to the App Store.
-        </HeroSub>
+        <HeroSub>{t("hero.subtitle")}</HeroSub>
         <HeroActions>
           <BtnPrimary
             href="#contact"
@@ -46,7 +46,7 @@ export default function Hero() {
               scrollTo("contact");
             }}
           >
-            Start a project →
+            {t("hero.primaryCta")}
           </BtnPrimary>
           <BtnSecondary
             href="#projects"
@@ -55,7 +55,7 @@ export default function Hero() {
               scrollTo("projects");
             }}
           >
-            See my work
+            {t("hero.secondaryCta")}
           </BtnSecondary>
         </HeroActions>
       </HeroLeft>

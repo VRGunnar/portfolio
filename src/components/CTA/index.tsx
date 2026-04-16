@@ -7,6 +7,7 @@ import {
   CtaEmail,
 } from "./styles";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useTranslation } from "react-i18next";
 
 function Reveal({
   children,
@@ -31,20 +32,19 @@ function Reveal({
 }
 
 export default function CTA() {
+  const { t } = useTranslation();
+
   return (
     <CtaSection id="contact">
       <CtaBg />
       <Reveal>
-        <CtaSectionLabel>Let's work together</CtaSectionLabel>
+        <CtaSectionLabel>{t("cta.label")}</CtaSectionLabel>
       </Reveal>
       <Reveal delay={0.1}>
-        <CtaH2>Have an app idea? Let's make it real.</CtaH2>
+        <CtaH2>{t("cta.title")}</CtaH2>
       </Reveal>
       <Reveal delay={0.2}>
-        <CtaSub>
-          Tell me about your project and I'll get back to you within 24 hours
-          with thoughts and next steps.
-        </CtaSub>
+        <CtaSub>{t("cta.subtitle")}</CtaSub>
       </Reveal>
       <Reveal delay={0.3}>
         <CtaEmail href="mailto:contact.gunnar.digital@gmail.com">

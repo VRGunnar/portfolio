@@ -9,27 +9,28 @@ import {
   StepDesc,
 } from "./styles";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useTranslation } from "react-i18next";
 
 const STEPS = [
   {
-    num: "01",
-    title: "Discovery Call",
-    desc: "We talk through your idea, goals, and timeline. I ask the right questions to scope the project clearly.",
+    numKey: "process.steps.one.num",
+    titleKey: "process.steps.one.title",
+    descKey: "process.steps.one.desc",
   },
   {
-    num: "02",
-    title: "Proposal & Plan",
-    desc: "You get a detailed proposal with milestones, timeline, and a fixed or retainer-based price — no surprises.",
+    numKey: "process.steps.two.num",
+    titleKey: "process.steps.two.title",
+    descKey: "process.steps.two.desc",
   },
   {
-    num: "03",
-    title: "Build & Iterate",
-    desc: "I build in short sprints with regular previews. You stay in the loop without drowning in technical details.",
+    numKey: "process.steps.three.num",
+    titleKey: "process.steps.three.title",
+    descKey: "process.steps.three.desc",
   },
   {
-    num: "04",
-    title: "Ship & Support",
-    desc: "App Store submission, deployment, and post-launch support so your product keeps running smoothly.",
+    numKey: "process.steps.four.num",
+    titleKey: "process.steps.four.title",
+    descKey: "process.steps.four.desc",
   },
 ];
 
@@ -56,22 +57,24 @@ function Reveal({
 }
 
 export default function Process() {
+  const { t } = useTranslation();
+
   return (
     <ProcessSection id="process">
       <ProcessInner>
         <Reveal>
-          <SectionLabel>How it works</SectionLabel>
+          <SectionLabel>{t("process.label")}</SectionLabel>
         </Reveal>
         <Reveal>
-          <SectionH2>A clear path from conversation to launch.</SectionH2>
+          <SectionH2>{t("process.title")}</SectionH2>
         </Reveal>
         <Reveal>
           <ProcessSteps>
             {STEPS.map((step) => (
-              <ProcessStep key={step.num}>
-                <StepNum>{step.num}</StepNum>
-                <StepTitle>{step.title}</StepTitle>
-                <StepDesc>{step.desc}</StepDesc>
+              <ProcessStep key={step.numKey}>
+                <StepNum>{t(step.numKey)}</StepNum>
+                <StepTitle>{t(step.titleKey)}</StepTitle>
+                <StepDesc>{t(step.descKey)}</StepDesc>
               </ProcessStep>
             ))}
           </ProcessSteps>

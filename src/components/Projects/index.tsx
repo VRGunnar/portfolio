@@ -23,6 +23,7 @@ import {
 } from "./styles";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import PhoneVideo from "./PhoneVideo";
+import { useTranslation } from "react-i18next";
 
 type Category = "all" | "mobile" | "fullstack";
 
@@ -63,6 +64,7 @@ function Reveal({
 
 export default function Projects() {
   const [active, setActive] = useState<Category>("all");
+  const { t } = useTranslation();
 
   const isHidden = (cat: string) => active !== "all" && active !== cat;
 
@@ -72,11 +74,11 @@ export default function Projects() {
         <Reveal>
           <ProjectsHeader>
             <div>
-              <SectionLabel>Selected work</SectionLabel>
+              <SectionLabel>{t("projects.label")}</SectionLabel>
               <SectionH2>
-                Apps built with care,
+                {t("projects.titleLine1")}
                 <br />
-                shipped with confidence.
+                {t("projects.titleLine2")}
               </SectionH2>
             </div>
             <ProjectsFilter>
@@ -86,7 +88,7 @@ export default function Projects() {
                   $active={active === cat}
                   onClick={() => setActive(cat)}
                 >
-                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                  {t(`projects.filters.${cat}`)}
                 </FilterBtn>
               ))}
             </ProjectsFilter>
@@ -168,46 +170,37 @@ export default function Projects() {
                 </MiniPhoneScreen>
               </MiniPhone> */}
             </ProjectScreenWrap>
-            <ProjTagBadge>React Native · Expo · Node.js</ProjTagBadge>
+            <ProjTagBadge>{t("projects.featuredBadge")}</ProjTagBadge>
           </ProjectFeaturedVisual>
           <ProjectFeaturedInfo>
-            <ProjectCategory>Featured · Mobile App</ProjectCategory>
-            <ProjectTitle>Landlord/Tenant app — Mobile platform</ProjectTitle>
-            <ProjectDesc>
-              A modern mobile app that connects landlords and tenants,
-              streamlining every step of the rental journey. From listings and
-              applications to payments, maintenance, and communication, it makes
-              renting easier, more transparent, and stress-free for both
-              parties.
-            </ProjectDesc>
-            <DisclaimerText>
-              This project is a work in progress. Demo data is used and the app
-              is still in a rough state.
-            </DisclaimerText>
+            <ProjectCategory>{t("projects.featuredCategory")}</ProjectCategory>
+            <ProjectTitle>{t("projects.featuredTitle")}</ProjectTitle>
+            <ProjectDesc>{t("projects.featuredDesc")}</ProjectDesc>
+            <DisclaimerText>{t("projects.featuredDisclaimer")}</DisclaimerText>
             <ProjectTags>
               {[
-                "React Native",
-                "Expo",
-                "MongoDB",
-                "Node.js",
-                "Express",
-                "Supabase",
-              ].map((t) => (
-                <Tag key={t}>{t}</Tag>
+                "reactNative",
+                "expo",
+                "mongoDb",
+                "nodeJs",
+                "express",
+                "supabase",
+              ].map((tagKey) => (
+                <Tag key={tagKey}>{t(`projects.tags.${tagKey}`)}</Tag>
               ))}
             </ProjectTags>
             <ProjectMeta>
               <div>
-                <MetaLabel>Platform</MetaLabel>
-                <MetaValue>iOS &amp; Android</MetaValue>
+                <MetaLabel>{t("projects.meta.platformLabel")}</MetaLabel>
+                <MetaValue>{t("projects.meta.platformValue")}</MetaValue>
               </div>
               {/* <div>
                 <MetaLabel>Timeline</MetaLabel>
                 <MetaValue>14 weeks</MetaValue>
               </div> */}
               <div>
-                <MetaLabel>Status</MetaLabel>
-                <MetaValue>In progress</MetaValue>
+                <MetaLabel>{t("projects.meta.statusLabel")}</MetaLabel>
+                <MetaValue>{t("projects.meta.statusValue")}</MetaValue>
               </div>
             </ProjectMeta>
             {/* <ProjectLink href="#">View case study →</ProjectLink> */}

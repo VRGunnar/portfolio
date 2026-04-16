@@ -7,22 +7,23 @@ import {
   ValueDesc,
 } from "./styles";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useTranslation } from "react-i18next";
 
 const VALUES = [
   {
     icon: "📱",
-    title: "Cross-Platform Apps",
-    desc: "One codebase, two stores. I build React Native + Expo apps that feel truly native on both iOS and Android — no compromises.",
+    titleKey: "about.values.crossPlatform.title",
+    descKey: "about.values.crossPlatform.desc",
   },
   {
     icon: "⚡",
-    title: "Full Stack Backend",
-    desc: "Your app needs a solid foundation. I build robust APIs and real-time backends with Node, Express, MongoDB, and GraphQL.",
+    titleKey: "about.values.fullStack.title",
+    descKey: "about.values.fullStack.desc",
   },
   {
     icon: "🚀",
-    title: "From Idea to Launch",
-    desc: "I handle the full journey — discovery, design, development, deployment, and App Store submission. You focus on your business.",
+    titleKey: "about.values.launch.title",
+    descKey: "about.values.launch.desc",
   },
 ];
 
@@ -43,24 +44,24 @@ function RevealSection({ children }: { children: React.ReactNode }) {
 }
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <div id="about">
       <Section>
         <RevealSection>
-          <SectionLabel>What I do</SectionLabel>
+          <SectionLabel>{t("about.label")}</SectionLabel>
         </RevealSection>
         <RevealSection>
-          <SectionH2>
-            End-to-end mobile solutions for businesses that want to grow.
-          </SectionH2>
+          <SectionH2>{t("about.title")}</SectionH2>
         </RevealSection>
         <RevealSection>
           <ValueGrid>
             {VALUES.map((v) => (
-              <ValueCard key={v.title}>
+              <ValueCard key={v.titleKey}>
                 <ValueIcon>{v.icon}</ValueIcon>
-                <ValueTitle>{v.title}</ValueTitle>
-                <ValueDesc>{v.desc}</ValueDesc>
+                <ValueTitle>{t(v.titleKey)}</ValueTitle>
+                <ValueDesc>{t(v.descKey)}</ValueDesc>
               </ValueCard>
             ))}
           </ValueGrid>
