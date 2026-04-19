@@ -101,6 +101,17 @@ export default function Nav() {
         <NavLinks>
           <li>
             <NavLink
+              href="#process"
+              onClick={(e) => {
+                e.preventDefault();
+                handleLink("process");
+              }}
+            >
+              {t("nav.process")}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               href="#about"
               onClick={(e) => {
                 e.preventDefault();
@@ -130,17 +141,6 @@ export default function Nav() {
               }}
             >
               {t("nav.stack")}
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              href="#process"
-              onClick={(e) => {
-                e.preventDefault();
-                handleLink("process");
-              }}
-            >
-              {t("nav.process")}
             </NavLink>
           </li>
           <li>

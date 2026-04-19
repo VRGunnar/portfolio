@@ -73,7 +73,7 @@ const nl = {
       mobile: "Mobiel",
       fullstack: "Fullstack",
     },
-    featuredBadge: "React Native · Expo · Node.js",
+    featuredBadge: "React Native · Expo · Node.js · Express · Supabase",
     featuredCategory: "Uitgelicht · Mobiele app",
     featuredTitle: "Verhuurder/Huurder-app - mobiel platform",
     featuredDesc:

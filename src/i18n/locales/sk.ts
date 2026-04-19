@@ -75,7 +75,7 @@ const sk = {
       fullstack: "Fullstack",
     },
     featuredBadge:
-      "React Native · Expo · MongoDB · Node.js · Express · Supabase",
+      "React Native · Expo · Node.js · Express · Supabase",
     featuredCategory: "Prenajímateľ/Nájomca — mobilná platforma",
     featuredTitle: "Prenajímateľ/Nájomca — mobilná platforma",
     featuredDesc:

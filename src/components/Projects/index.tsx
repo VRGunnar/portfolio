@@ -181,7 +181,6 @@ export default function Projects() {
               {[
                 "reactNative",
                 "expo",
-                "mongoDb",
                 "nodeJs",
                 "express",
                 "supabase",

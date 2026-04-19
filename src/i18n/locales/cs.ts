@@ -73,7 +73,7 @@ const cs = {
       mobile: "Mobilni",
       fullstack: "Fullstack",
     },
-    featuredBadge: "React Native · Expo · Node.js",
+    featuredBadge: "React Native · Expo · Node.js · Express · Supabase",
     featuredCategory: "Vybrane · Mobilni aplikace",
     featuredTitle: "Aplikace pro pronajimatele a najemniky - mobilni platforma",
     featuredDesc:

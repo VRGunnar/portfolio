@@ -73,7 +73,7 @@ const de = {
       mobile: "Mobile",
       fullstack: "Fullstack",
     },
-    featuredBadge: "React Native · Expo · Node.js",
+    featuredBadge: "React Native · Expo · Node.js · Express · Supabase",
     featuredCategory: "Highlight · Mobile App",
     featuredTitle: "Vermieter/Mieter-App - mobile Plattform",
     featuredDesc:
