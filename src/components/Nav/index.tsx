@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import type { MouseEvent as ReactMouseEvent } from "react";
 import {
   NavBar,
   Logo,
   NavLinks,
   NavLink,
   NavCta,
+  ThemeToggleBtn,
   MobileMenuBtn,
   MobileMenu,
   MobileLink,
@@ -20,6 +22,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { SUPPORTED_LANGS } from "../../i18n";
 import { FLAG_MAP } from "./flags";
+import type { ThemeMode } from "../../theme";
 
 const NAV_HEIGHT = 64;
 
@@ -31,7 +34,12 @@ function scrollTo(id: string) {
   window.scrollTo({ top, behavior: "smooth" });
 }
 
-export default function Nav() {
+type NavProps = {
+  themeMode: ThemeMode;
+  onToggleTheme: (event?: ReactMouseEvent<HTMLButtonElement>) => void;
+};
+
+export default function Nav({ themeMode, onToggleTheme }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const desktopLangSelectorRef = useRef<HTMLDivElement>(null);
@@ -44,6 +52,8 @@ export default function Nav() {
     : (i18n.resolvedLanguage as (typeof SUPPORTED_LANGS)[number]) || "en";
 
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const nextThemeLabel = themeMode === "dark" ? "light" : "dark";
+  const nextThemeIcon = themeMode === "dark" ? "☀" : "☾";
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
@@ -155,6 +165,11 @@ export default function Nav() {
             </NavCta>
           </li>
           <li>
+            <ThemeToggleBtn onClick={onToggleTheme} aria-label="Toggle theme">
+              {nextThemeIcon} {nextThemeLabel}
+            </ThemeToggleBtn>
+          </li>
+          <li>
             <LanguageSelectorWrap ref={desktopLangSelectorRef}>
               <LanguageSelectorButton
                 onClick={() => setLangDropdownOpen((o) => !o)}
@@ -236,6 +251,13 @@ export default function Nav() {
 
       <MobileMenu $open={menuOpen}>
         <MobileLanguageWrap>
+          <ThemeToggleBtn
+            onClick={onToggleTheme}
+            aria-label="Toggle theme"
+            $mobile
+          >
+            {nextThemeIcon} {nextThemeLabel}
+          </ThemeToggleBtn>
           <LanguageSelectorWrap ref={mobileLangSelectorRef} $mobile>
             <LanguageSelectorButton
               onClick={() => setLangDropdownOpen((o) => !o)}

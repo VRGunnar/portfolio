@@ -23,16 +23,16 @@ export const LanguageSelectorButton = styled.button<{
   justify-content: flex-start;
   gap: 0.6rem;
   height: 2.5rem;
-  background: rgba(247, 241, 232, 0.9);
-  border: 1px solid rgba(74, 55, 40, 0.24);
+  background: ${theme.colors.linen};
+  border: 1px solid ${theme.colors.sand};
   border-radius: 14px;
   padding: 0 0.95rem;
   font-size: 1rem;
   font-weight: 700;
-  color: rgba(74, 55, 40, 0.94);
+  color: ${theme.colors.bark};
   cursor: pointer;
   box-shadow: ${({ $open }) =>
-    $open ? "0 8px 22px rgba(44, 31, 20, 0.1)" : "none"};
+    $open ? "0 8px 22px rgba(0, 0, 0, 0.18)" : "none"};
   transition:
     box-shadow 0.2s,
     border-color 0.2s,
@@ -58,20 +58,18 @@ export const LanguageSelectorButton = styled.button<{
 
   .lang-chevron {
     margin-left: auto;
-    color: rgba(74, 55, 40, 0.62);
+    color: ${theme.colors.stone};
     flex-shrink: 0;
   }
 
   &:hover,
   &:focus {
-    border-color: rgba(74, 55, 40, 0.38);
+    border-color: ${theme.colors.accent};
   }
 
   &:focus-visible {
     border-color: ${theme.colors.accent};
-    box-shadow:
-      0 0 0 3px rgba(193, 125, 60, 0.2),
-      0 8px 22px rgba(44, 31, 20, 0.12);
+    box-shadow: 0 0 0 3px rgba(193, 125, 60, 0.2);
   }
 `;
 
@@ -83,10 +81,10 @@ export const LanguageDropdown = styled.div<{ $mobile?: boolean }>`
   min-width: 100%;
   width: max-content;
   margin-top: ${({ $mobile }) => ($mobile ? "0.5rem" : "0")};
-  background: #ece5da;
-  border: 1px solid rgba(74, 55, 40, 0.2);
+  background: ${theme.colors.linen};
+  border: 1px solid ${theme.colors.sand};
   border-radius: 4px;
-  box-shadow: 0 12px 28px rgba(27, 22, 16, 0.18);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
   padding: 0;
   overflow: hidden;
   z-index: 1000;
@@ -101,10 +99,11 @@ export const LanguageDropdownItem = styled.button<{ $active?: boolean }>`
   padding: 0.9rem 1rem;
   font-size: 1.05rem;
   font-weight: ${({ $active }) => ($active ? 700 : 500)};
-  color: #4a3728;
-  background: ${({ $active }) => ($active ? "#ddd3c4" : "#ece5da")};
+  color: ${theme.colors.soil};
+  background: ${({ $active }) =>
+    $active ? theme.colors.sand : theme.colors.linen};
   cursor: pointer;
-  border-bottom: 1px solid rgba(74, 55, 40, 0.12);
+  border-bottom: 1px solid ${theme.colors.sand};
   position: relative;
   transition: background 0.16s ease;
 
@@ -113,7 +112,7 @@ export const LanguageDropdownItem = styled.button<{ $active?: boolean }>`
   }
 
   &:hover {
-    background: #e2d8c9;
+    background: ${theme.colors.sand};
   }
 
   &:focus-visible {
@@ -134,7 +133,7 @@ export const LanguageName = styled.span`
 `;
 
 export const LanguageCheck = styled.span`
-  color: #bb7b3a;
+  color: ${theme.colors.accent};
   font-size: 1.2em;
   margin-left: 0.5rem;
   font-weight: 700;
@@ -206,32 +205,38 @@ export const NavBar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 3rem;
-  background: rgba(247, 241, 232, 0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(196, 168, 130, 0.25);
+  padding: 0 1.35rem;
+  background: ${theme.colors.cream};
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid ${theme.colors.sand};
 
   @media (max-width: ${theme.breakpoints.md}) {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 `;
 
 export const Logo = styled.a`
   font-family: ${theme.fonts.heading};
   font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: -0.02em;
+  font-size: 14px;
+  letter-spacing: 0.01em;
   color: ${theme.colors.soil};
   text-decoration: none;
+  transition: color 0.2s;
 
   span {
+    color: ${theme.colors.accent};
+  }
+
+  &:hover {
     color: ${theme.colors.accent};
   }
 `;
 
 export const NavLinks = styled.ul`
   display: flex;
-  gap: 2rem;
+  gap: 1.45rem;
   list-style: none;
   align-items: center;
 
@@ -241,16 +246,17 @@ export const NavLinks = styled.ul`
 `;
 
 export const NavLink = styled.a`
-  font-size: 0.82rem;
+  font-size: 13px;
   font-weight: 400;
   color: ${theme.colors.bark};
   text-decoration: none;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: ${theme.fonts.body};
   transition: color 0.2s;
 
   &:hover {
-    color: ${theme.colors.accent};
+    color: ${theme.colors.soil};
   }
 `;
 
@@ -291,20 +297,57 @@ export const LanguageSelect = styled.select<{ $custom?: boolean }>`
 `;
 
 export const NavCta = styled(NavLink)`
-  background: ${theme.colors.soil};
-  color: ${theme.colors.cream} !important;
-  padding: 0.45rem 1.1rem;
-  border-radius: 2px;
+  font-family: ${theme.fonts.heading};
+  font-size: 13px;
+  font-weight: 600;
+  color: ${theme.colors.soil} !important;
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(74, 55, 40, 0.25);
+  background: transparent;
   transition:
     background 0.2s,
     color 0.2s,
-    border-radius 0.25s;
+    border-color 0.2s;
 
   &:hover {
     background: ${theme.colors.accent};
-    color: ${theme.colors.cream} !important;
-    border-radius: 18px;
+    color: #fff !important;
+    border-color: ${theme.colors.accent};
   }
+`;
+
+export const ThemeToggleBtn = styled.button<{ $mobile?: boolean }>`
+  font-family: ${theme.fonts.heading};
+  font-size: 12px;
+  font-weight: 600;
+  color: ${theme.colors.bark};
+  border: 1px solid ${theme.colors.sand};
+  border-radius: 6px;
+  background: ${theme.colors.linen};
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+
+  &:hover {
+    color: ${theme.colors.soil};
+    border-color: ${theme.colors.accent};
+    background: ${theme.colors.cream};
+  }
+
+  ${({ $mobile }) =>
+    $mobile &&
+    `
+      width: 100%;
+      margin-bottom: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: lowercase;
+    `}
 `;
 
 export const MobileMenuBtn = styled.button`
@@ -331,12 +374,12 @@ export const MobileMenu = styled.div<{ $open: boolean }>`
     top: ${theme.navH};
     left: 0;
     right: 0;
-    background: rgba(247, 241, 232, 0.97);
-    backdrop-filter: blur(14px);
+    background: ${theme.colors.cream};
+    backdrop-filter: blur(8px);
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1.25rem 1rem;
     gap: 1rem;
-    border-bottom: 1px solid rgba(196, 168, 130, 0.25);
+    border-bottom: 1px solid ${theme.colors.sand};
     z-index: 99;
   }
 `;
