@@ -1,0 +1,6 @@
+<script>
+  // Redirect all non-file requests to index.html for SPA routing
+  // (for GitHub Pages, Netlify, Vercel, etc. that support _redirects)
+</script>
+/* Netlify/Vercel/Static SPA fallback: /hire-me /index.html 200 /* /index.html
+200 */
