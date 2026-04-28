@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
+import { themePalettes } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -12,14 +12,47 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
+  :root {
+    --theme-transition-x: 50vw;
+    --theme-transition-y: 50vh;
+    --theme-transition-radius: 0px;
+  }
+
+  :root,
+  :root[data-theme='light'] {
+    --color-soil: ${themePalettes.light.soil};
+    --color-bark: ${themePalettes.light.bark};
+    --color-clay: ${themePalettes.light.clay};
+    --color-sand: ${themePalettes.light.sand};
+    --color-linen: ${themePalettes.light.linen};
+    --color-cream: ${themePalettes.light.cream};
+    --color-moss: ${themePalettes.light.moss};
+    --color-stone: ${themePalettes.light.stone};
+    --color-accent: ${themePalettes.light.accent};
+    --color-accent-warm: ${themePalettes.light.accentWarm};
+  }
+
+  :root[data-theme='dark'] {
+    --color-soil: ${themePalettes.dark.soil};
+    --color-bark: ${themePalettes.dark.bark};
+    --color-clay: ${themePalettes.dark.clay};
+    --color-sand: ${themePalettes.dark.sand};
+    --color-linen: ${themePalettes.dark.linen};
+    --color-cream: ${themePalettes.dark.cream};
+    --color-moss: ${themePalettes.dark.moss};
+    --color-stone: ${themePalettes.dark.stone};
+    --color-accent: ${themePalettes.dark.accent};
+    --color-accent-warm: ${themePalettes.dark.accentWarm};
+  }
+
   [id] {
-    scroll-margin-top: calc(${theme.navH} + 8px);
+    scroll-margin-top: calc(${({ theme }) => theme.navH} + 8px);
   }
 
   body {
-    background: ${theme.colors.cream};
-    color: ${theme.colors.soil};
-    font-family: ${theme.fonts.body};
+    background: ${({ theme }) => theme.colors.cream};
+    color: ${({ theme }) => theme.colors.soil};
+    font-family: ${({ theme }) => theme.fonts.body};
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
@@ -48,5 +81,29 @@ export const GlobalStyle = createGlobalStyle`
   @keyframes marquee {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+  }
+
+  @keyframes themeCircleReveal {
+    from {
+      clip-path: circle(0 at var(--theme-transition-x) var(--theme-transition-y));
+    }
+    to {
+      clip-path: circle(var(--theme-transition-radius) at var(--theme-transition-x) var(--theme-transition-y));
+    }
+  }
+
+  :root.theme-transition-active::view-transition-old(root) {
+    animation: none;
+  }
+
+  :root.theme-transition-active::view-transition-new(root) {
+    animation: themeCircleReveal 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root.theme-transition-active::view-transition-old(root),
+    :root.theme-transition-active::view-transition-new(root) {
+      animation: none;
+    }
   }
 `;
