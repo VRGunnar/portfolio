@@ -75,7 +75,7 @@ export default function HireMe({ themeMode, onToggleTheme }: HireMeProps) {
         />
         <ContentMain>
           <div ref={heroRef}>
-            <HireMeHero onNavigate={scrollToSection} />
+            <HireMeHero onNavigate={scrollToSection} themeMode={themeMode} />
           </div>
           <CapabilitiesSection />
           <FeaturedProjectSection />

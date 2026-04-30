@@ -15,3 +15,15 @@ if (!fs.existsSync(indexPath)) {
 
 fs.copyFileSync(indexPath, notFoundPath);
 console.log("Copied index.html to 404.html for SPA fallback.");
+
+// Ensure CNAME is present in dist for GitHub Pages custom domain
+const cnameSrc = path.join(currentDirPath, "CNAME");
+const cnameDest = path.join(distDir, "CNAME");
+if (fs.existsSync(cnameSrc)) {
+  fs.copyFileSync(cnameSrc, cnameDest);
+  console.log("Copied CNAME to dist for GitHub Pages custom domain.");
+} else {
+  console.warn(
+    "CNAME file not found in project root; custom domain may not work.",
+  );
+}
