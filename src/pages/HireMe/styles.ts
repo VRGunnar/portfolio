@@ -35,7 +35,8 @@ export const Container = styled.div`
 
 export const SectionWrap = styled.section`
   padding: 4.5rem 0;
-  border-top: 1px solid rgba(74, 55, 40, 0.1);
+  border-top: 1px solid
+    color-mix(in srgb, ${theme.colors.soil} 22%, transparent);
 
   &:first-of-type {
     border-top: none;
@@ -52,7 +53,7 @@ export const SectionLabel = styled.p`
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: ${theme.colors.accent};
+  color: ${theme.colors.moss};
   margin-bottom: 0.85rem;
   display: flex;
   align-items: center;
@@ -63,8 +64,16 @@ export const SectionLabel = styled.p`
     display: block;
     width: 32px;
     height: 1px;
-    background: ${theme.colors.accent};
-    opacity: 0.5;
+    background: ${theme.colors.moss};
+    opacity: 0.7;
+  }
+
+  :root[data-theme="dark"] & {
+    color: ${theme.colors.moss};
+
+    &::after {
+      opacity: 0.9;
+    }
   }
 `;
 
@@ -89,7 +98,8 @@ export const HireNav = styled.nav`
   top: 0;
   z-index: 100;
   background: ${theme.colors.cream};
-  border-bottom: 1px solid rgba(74, 55, 40, 0.1);
+  border-bottom: 1px solid
+    color-mix(in srgb, ${theme.colors.soil} 22%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 `;
@@ -136,9 +146,19 @@ export const NavSlug = styled.span`
   font-family: ${theme.fonts.heading};
   font-size: 11px;
   color: ${theme.colors.stone};
-  border: 1px solid rgba(74, 55, 40, 0.2);
+  border: 1px solid color-mix(in srgb, ${theme.colors.soil} 22%, transparent);
   border-radius: 4px;
   padding: 2px 8px;
+
+  :root[data-theme="dark"] & {
+    color: ${theme.colors.bark};
+    border-color: color-mix(in srgb, ${theme.colors.soil} 34%, transparent);
+    background: color-mix(
+      in srgb,
+      ${theme.colors.linen} 84%,
+      ${theme.colors.soil} 16%
+    );
+  }
 `;
 
 export const NavLinks = styled.div`
@@ -173,15 +193,33 @@ export const NavContactBtn = styled.a`
   font-weight: 600;
   padding: 7px 16px;
   border-radius: 6px;
-  border: 1px solid rgba(74, 55, 40, 0.25);
+  border: 1px solid color-mix(in srgb, ${theme.colors.soil} 30%, transparent);
+  background: color-mix(
+    in srgb,
+    ${theme.colors.linen} 84%,
+    ${theme.colors.cream}
+  );
   color: ${theme.colors.soil};
   text-decoration: none;
   transition: all 0.2s;
 
+  :root[data-theme="dark"] & {
+    border-color: color-mix(in srgb, ${theme.colors.soil} 42%, transparent);
+    background: color-mix(
+      in srgb,
+      ${theme.colors.linen} 72%,
+      ${theme.colors.soil} 28%
+    );
+  }
+
   &:hover {
-    background: ${theme.colors.accent};
-    color: #fff;
-    border-color: ${theme.colors.accent};
+    background: color-mix(
+      in srgb,
+      ${theme.colors.accent} 22%,
+      ${theme.colors.cream}
+    );
+    color: ${theme.colors.soil};
+    border-color: color-mix(in srgb, ${theme.colors.accent} 64%, transparent);
   }
 `;
 
@@ -190,9 +228,13 @@ export const NavThemeBtn = styled.button`
   font-size: 12px;
   font-weight: 600;
   color: ${theme.colors.bark};
-  border: 1px solid ${theme.colors.sand};
+  border: 1px solid color-mix(in srgb, ${theme.colors.soil} 28%, transparent);
   border-radius: 6px;
-  background: ${theme.colors.linen};
+  background: color-mix(
+    in srgb,
+    ${theme.colors.linen} 84%,
+    ${theme.colors.cream}
+  );
   padding: 0.35rem 0.65rem;
   cursor: pointer;
   transition:
@@ -200,10 +242,24 @@ export const NavThemeBtn = styled.button`
     border-color 0.2s,
     background 0.2s;
 
+  :root[data-theme="dark"] & {
+    color: ${theme.colors.soil};
+    border-color: color-mix(in srgb, ${theme.colors.soil} 42%, transparent);
+    background: color-mix(
+      in srgb,
+      ${theme.colors.linen} 72%,
+      ${theme.colors.soil} 28%
+    );
+  }
+
   &:hover {
     color: ${theme.colors.soil};
-    border-color: ${theme.colors.accent};
-    background: ${theme.colors.cream};
+    border-color: color-mix(in srgb, ${theme.colors.accent} 64%, transparent);
+    background: color-mix(
+      in srgb,
+      ${theme.colors.accent} 22%,
+      ${theme.colors.cream}
+    );
   }
 `;
 
@@ -223,7 +279,7 @@ export const HeroEyebrow = styled.p`
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: ${theme.colors.accent};
+  color: ${theme.colors.moss};
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -235,8 +291,8 @@ export const HeroEyebrow = styled.p`
     display: block;
     width: 28px;
     height: 1px;
-    background: ${theme.colors.accent};
-    opacity: 0.6;
+    background: ${theme.colors.moss};
+    opacity: 0.85;
   }
 `;
 
@@ -283,11 +339,28 @@ export const Tag = styled.span<{ $accent?: boolean }>`
   padding: 4px 10px;
   border-radius: 5px;
   border: 1px solid
-    ${(p) => (p.$accent ? theme.colors.clay : "rgba(74, 55, 40, 0.2)")};
+    ${(p) =>
+      p.$accent
+        ? theme.colors.clay
+        : `color-mix(in srgb, ${theme.colors.soil} 24%, transparent)`};
   color: ${(p) => (p.$accent ? theme.colors.accent : theme.colors.bark)};
   background: ${(p) =>
-    p.$accent ? `rgba(193, 125, 60, 0.08)` : theme.colors.linen};
+    p.$accent
+      ? `color-mix(in srgb, ${theme.colors.accent} 18%, ${theme.colors.cream})`
+      : theme.colors.linen};
   white-space: nowrap;
+
+  :root[data-theme="dark"] & {
+    border-color: ${(p) =>
+      p.$accent
+        ? `color-mix(in srgb, ${theme.colors.accent} 62%, transparent)`
+        : `color-mix(in srgb, ${theme.colors.soil} 30%, transparent)`};
+    color: ${(p) => (p.$accent ? theme.colors.soil : theme.colors.soil)};
+    background: ${(p) =>
+      p.$accent
+        ? `color-mix(in srgb, ${theme.colors.accent} 22%, ${theme.colors.linen})`
+        : `color-mix(in srgb, ${theme.colors.linen} 82%, ${theme.colors.soil} 18%)`};
+  }
 `;
 
 export const HeroCtas = styled.div`
@@ -326,16 +399,34 @@ export const BtnOutline = styled.a`
   font-weight: 600;
   padding: 11px 22px;
   border-radius: 6px;
-  background: transparent;
+  background: color-mix(
+    in srgb,
+    ${theme.colors.linen} 82%,
+    ${theme.colors.cream}
+  );
   color: ${theme.colors.soil};
-  border: 1px solid rgba(74, 55, 40, 0.25);
+  border: 1px solid color-mix(in srgb, ${theme.colors.soil} 32%, transparent);
   text-decoration: none;
   transition: all 0.2s;
   cursor: pointer;
 
+  :root[data-theme="dark"] & {
+    border-color: color-mix(in srgb, ${theme.colors.soil} 44%, transparent);
+    background: color-mix(
+      in srgb,
+      ${theme.colors.linen} 70%,
+      ${theme.colors.soil} 30%
+    );
+  }
+
   &:hover {
-    border-color: ${theme.colors.clay};
-    color: ${theme.colors.accent};
+    border-color: color-mix(in srgb, ${theme.colors.accent} 68%, transparent);
+    background: color-mix(
+      in srgb,
+      ${theme.colors.accent} 22%,
+      ${theme.colors.cream}
+    );
+    color: ${theme.colors.soil};
   }
 `;
 
@@ -838,7 +929,8 @@ export const WipText = styled.p`
 export const ContactSection = styled.section`
   padding: 4.8rem 0;
   text-align: center;
-  border-top: 1px solid rgba(74, 55, 40, 0.1);
+  border-top: 1px solid
+    color-mix(in srgb, ${theme.colors.soil} 22%, transparent);
   position: relative;
   overflow: hidden;
 
@@ -861,7 +953,7 @@ export const ContactSectionLabel = styled.p`
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: ${theme.colors.accent};
+  color: ${theme.colors.moss};
   margin-bottom: 0.85rem;
   display: flex;
   align-items: center;
@@ -873,8 +965,16 @@ export const ContactSectionLabel = styled.p`
     display: block;
     width: 32px;
     height: 1px;
-    background: ${theme.colors.accent};
-    opacity: 0.5;
+    background: ${theme.colors.moss};
+    opacity: 0.7;
+  }
+
+  :root[data-theme="dark"] & {
+    color: ${theme.colors.moss};
+
+    &::after {
+      opacity: 0.9;
+    }
   }
 `;
 
@@ -961,7 +1061,8 @@ export const StickyCta = styled.a<{ $hidden: boolean }>`
 // ── FOOTER ─────────────────────────────────────────────────────────────────
 
 export const HireFooter = styled.footer`
-  border-top: 1px solid rgba(74, 55, 40, 0.1);
+  border-top: 1px solid
+    color-mix(in srgb, ${theme.colors.soil} 22%, transparent);
   padding: 1.3rem 0;
 `;
 
@@ -977,6 +1078,10 @@ export const HireFooterInner = styled.div`
   font-family: ${theme.fonts.heading};
   font-size: 12.5px;
   color: ${theme.colors.stone};
+
+  :root[data-theme="dark"] & {
+    color: ${theme.colors.bark};
+  }
 `;
 
 // ── LAYOUT ─────────────────────────────────────────────────────────────────

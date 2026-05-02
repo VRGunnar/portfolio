@@ -14,6 +14,7 @@ import Process from "./components/Process";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import HireMe from "./pages/HireMe";
+import CVPage from "./pages/CV";
 
 const THEME_STORAGE_KEY = "portfolio-theme-mode";
 
@@ -146,6 +147,10 @@ export default function App() {
         <Route
           path="/hire-me"
           element={<HireMe themeMode={themeMode} onToggleTheme={toggleTheme} />}
+        />
+        <Route
+          path="/cv"
+          element={<CVPage themeMode={themeMode} onToggleTheme={toggleTheme} />}
         />
       </Routes>
     </ThemeProvider>
