@@ -13,7 +13,7 @@ const sk = {
     projects: "Projekty",
     stack: "Stack",
     process: "Proces",
-    cta: "Podme to postavit",
+    cta: "Poďme na to",
     openMenu: "Otvorit menu",
     closeMenu: "Zavriet menu",
     languageLabel: "Jazyk",
@@ -26,7 +26,7 @@ const sk = {
     subtitle:
       "Navrhujeme a vyvíjame webové aj mobilné aplikácie, ktoré majú ľudia radi – od prvotného nápadu až po spustenie.",
     primaryCta: "Začať projekt ->",
-    secondaryCta: "Pozrieť si moju prácu",
+    secondaryCta: "Pozrite si moju prácu",
   },
   marquee: {
     items: {
