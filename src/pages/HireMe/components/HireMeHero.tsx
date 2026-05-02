@@ -13,14 +13,11 @@ import {
   StatusDot,
 } from "../styles";
 
-import type { ThemeMode } from "../../../theme";
-
 type HireMeHeroProps = {
   onNavigate: (id: string) => void;
-  themeMode: ThemeMode;
 };
 
-export default function HireMeHero({ onNavigate, themeMode }: HireMeHeroProps) {
+export default function HireMeHero({ onNavigate }: HireMeHeroProps) {
   return (
     <HeroSection>
       <Container>
@@ -68,16 +65,7 @@ export default function HireMeHero({ onNavigate, themeMode }: HireMeHeroProps) {
           >
             Contact Me
           </BtnOutline>
-          <BtnOutline
-            href={
-              themeMode === "dark"
-                ? "/GVR-CV-Dark-2026.pdf"
-                : "/GVR-CV-Light-2026.pdf"
-            }
-            download
-          >
-            Download CV
-          </BtnOutline>
+          <BtnOutline href="/cv">Download CV</BtnOutline>
         </HeroCtas>
         <HeroStatus>
           <StatusDot />
