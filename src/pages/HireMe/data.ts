@@ -49,6 +49,34 @@ export const MINDSET = [
   },
 ] as const;
 
+export const AI_WORKFLOW_STEPS = [
+  {
+    label: "01 · Plan",
+    title: "Ticket triage in Jira",
+    text: "Every feature, fix, or idea starts as a ticket in Jira before any code gets written.",
+  },
+  {
+    label: "02 · Research",
+    title: "Claude does the deep dive",
+    text: "Before execution, Claude researches the ticket, weighs options and trade-offs, and comes back with a concrete plan to review.",
+  },
+  {
+    label: "03 · Execute",
+    title: "Skill-guided implementation",
+    text: "I hand Claude the ticket number. A project-specific skill applies the right conventions and guidelines while Claude builds the change.",
+  },
+  {
+    label: "04 · Verify",
+    title: "Self-testing & code review",
+    text: "Claude runs a full test pass and a self code-review before anything reaches me.",
+  },
+  {
+    label: "05 · Ship",
+    title: "Human-reviewed PR",
+    text: "Claude opens a PR. I review for security and code quality, test the change myself, check it against my own UI/UX, request fixes if needed, then merge.",
+  },
+] as const;
+
 export const EXPERIENCE = [
   {
     role: "Full-Stack Developer",
@@ -82,6 +110,7 @@ export const STACK_GROUPS = [
       "React Native",
       "Expo",
       "Styled Components",
+      "Tailwind CSS",
       "React",
       "Modern JavaScript",
     ],
@@ -92,6 +121,7 @@ export const STACK_GROUPS = [
       "Node.js",
       "Express",
       "Jest",
+      "Prisma",
       "Sequelize",
       "GraphQL",
       "Redis",

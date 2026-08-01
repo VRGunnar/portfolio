@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { MouseEvent as ReactMouseEvent } from "react";
+import { useTranslation } from "react-i18next";
 import {
   PageWrapper,
   Container,
@@ -55,18 +56,19 @@ import {
   EmploymentLabel,
   EmploymentValue,
   RentalHistoryLayout,
+  RentalHistoryPhotoWrap,
   HouseGalleryLabel,
 } from "./styles";
 import HouseGallery from "./components/HouseGallery";
 import {
   RENTER_CONTACT,
-  RENTER_TAGS,
+  RENTER_TAG_KEYS,
   HOUSEHOLD_GALLERY,
-  HOUSEHOLD_STATS,
+  HOUSEHOLD_STAT_KEYS,
   LIFESTYLE_CARDS,
-  EMPLOYMENT_ROWS,
+  EMPLOYMENT_ROW_KEYS,
   LOOKING_FOR_CARDS,
-  DOCUMENTS_READY,
+  DOCUMENTS_READY_KEYS,
 } from "./data";
 import type { ThemeMode } from "../../theme";
 
@@ -79,8 +81,12 @@ export default function RenterProfilePage({
   themeMode,
   onToggleTheme,
 }: RenterProfilePageProps) {
+  const { t, i18n } = useTranslation();
   const nextThemeIcon = themeMode === "dark" ? "☀" : "☾";
   const nextThemeLabel = themeMode === "dark" ? "light" : "dark";
+
+  const currentLang = i18n.resolvedLanguage?.startsWith("nl") ? "nl" : "en";
+  const nextLang = currentLang === "en" ? "nl" : "en";
 
   return (
     <PageWrapper>
@@ -94,6 +100,12 @@ export default function RenterProfilePage({
             <NavSlug>/renter-profile</NavSlug>
           </NavLogo>
           <NavLinks>
+            <NavThemeBtn
+              onClick={() => i18n.changeLanguage(nextLang)}
+              aria-label={t("renterProfile.nav.toggleLanguage")}
+            >
+              {currentLang.toUpperCase()} → {nextLang.toUpperCase()}
+            </NavThemeBtn>
             <NavThemeBtn onClick={onToggleTheme} aria-label="Toggle theme">
               {nextThemeIcon} {nextThemeLabel}
             </NavThemeBtn>
@@ -101,7 +113,7 @@ export default function RenterProfilePage({
               href={`mailto:${RENTER_CONTACT.email}`}
               style={{ padding: "7px 16px", fontSize: "13px" }}
             >
-              Email us
+              {t("renterProfile.nav.emailUs")}
             </BtnPrimary>
           </NavLinks>
         </HireNavInner>
@@ -112,47 +124,40 @@ export default function RenterProfilePage({
         <Container>
           <HeroLayout>
             <div>
-              <HeroEyebrow>Available from September 2026</HeroEyebrow>
+              <HeroEyebrow>{t("renterProfile.hero.eyebrow")}</HeroEyebrow>
               <HeroH1>
-                <em>Software engineer</em> relocating to Amsterdam with his
-                girlfriend &amp; dog
+                <em>{t("renterProfile.hero.titleAccent")}</em>{" "}
+                {t("renterProfile.hero.titleRest")}
               </HeroH1>
-              <HeroSub>
-                Gunnar Van Remoortere — moving from Bratislava, Slovakia with
-                my girlfriend of five years and our small Maltipoo. Looking
-                for a long-term home from September / October 2026.
-              </HeroSub>
+              <HeroSub>{t("renterProfile.hero.subtitle")}</HeroSub>
               <HeroTagRow>
-                {RENTER_TAGS.map((tag) => (
-                  <Tag key={tag}>{tag}</Tag>
+                {RENTER_TAG_KEYS.map((key) => (
+                  <Tag key={key}>{t(key)}</Tag>
                 ))}
               </HeroTagRow>
               <HeroCtas>
                 <BtnPrimary href={`mailto:${RENTER_CONTACT.email}`}>
-                  Email us
+                  {t("renterProfile.hero.emailUs")}
                 </BtnPrimary>
                 <BtnOutline
                   href={RENTER_CONTACT.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  LinkedIn
+                  {t("renterProfile.hero.linkedin")}
                 </BtnOutline>
               </HeroCtas>
               <HeroStatus>
                 <StatusDot />
-                Full application packet — ID, contract, payslips, references
-                — ready on request
+                {t("renterProfile.hero.status")}
               </HeroStatus>
             </div>
 
             <div>
               <PhotoFrame>
-                <PhotoLabel>photo — you, girlfriend &amp; dog</PhotoLabel>
+                <PhotoLabel>{t("renterProfile.hero.photoLabel")}</PhotoLabel>
               </PhotoFrame>
-              <PhotoCaption>
-                Gunnar, my girlfriend &amp; our Maltipoo
-              </PhotoCaption>
+              <PhotoCaption>{t("renterProfile.hero.photoCaption")}</PhotoCaption>
             </div>
           </HeroLayout>
         </Container>
@@ -161,14 +166,14 @@ export default function RenterProfilePage({
       {/* Meet the household */}
       <SectionWrap>
         <Container>
-          <SectionLabel>Meet the household</SectionLabel>
+          <SectionLabel>{t("renterProfile.household.sectionLabel")}</SectionLabel>
           <GalleryGrid>
             {HOUSEHOLD_GALLERY.map((item) => (
-              <div key={item.label}>
+              <div key={item.id}>
                 <PhotoFrame $ratio="1 / 1" $filled>
-                  <PhotoImg src={item.image} alt={item.caption} />
+                  <PhotoImg src={item.image} alt={t(item.captionKey)} />
                 </PhotoFrame>
-                <PhotoCaption>{item.caption}</PhotoCaption>
+                <PhotoCaption>{t(item.captionKey)}</PhotoCaption>
               </div>
             ))}
           </GalleryGrid>
@@ -179,8 +184,8 @@ export default function RenterProfilePage({
       <SectionWrap>
         <Container>
           <SectionHeader>
-            <SectionLabel>01 — About us</SectionLabel>
-            <SectionH2>A bit about who we are.</SectionH2>
+            <SectionLabel>{t("renterProfile.about.eyebrow")}</SectionLabel>
+            <SectionH2>{t("renterProfile.about.title")}</SectionH2>
           </SectionHeader>
           <div
             style={{
@@ -191,29 +196,19 @@ export default function RenterProfilePage({
             }}
           >
             <HeroSub style={{ flex: "1 1 400px", maxWidth: "600px" }}>
-              Hi, I&apos;m Gunnar. I&apos;m a software engineer working
-              full-time as a freelancer for a Belgian company (Summer Bash,
-              Antwerp), currently based in Bratislava, Slovakia. Together
-              with my girlfriend — together five years now — we&apos;re
-              looking to relocate to the Amsterdam area. We currently own
-              our own house near Bratislava, so we know how to take care of
-              a home and treat it as our own. In our free time I work on
-              personal software projects and stay active at the gym;
-              she&apos;s just as happy pottering around the house or
-              exploring somewhere new. We&apos;re looking for a place we can
-              properly settle into and call home, not just a stopover.
+              {t("renterProfile.about.body")}
             </HeroSub>
             <StatStrip>
-              {HOUSEHOLD_STATS.map((stat) => (
-                <StatItem key={stat.label}>
-                  <StatValue>{stat.value}</StatValue>
-                  <StatLabel>{stat.label}</StatLabel>
+              {HOUSEHOLD_STAT_KEYS.map((stat) => (
+                <StatItem key={stat.valueKey}>
+                  <StatValue>{t(stat.valueKey)}</StatValue>
+                  <StatLabel>{t(stat.labelKey)}</StatLabel>
                 </StatItem>
               ))}
             </StatStrip>
           </div>
 
-          <HouseGalleryLabel>Our current home, near Bratislava</HouseGalleryLabel>
+          <HouseGalleryLabel>{t("renterProfile.about.galleryLabel")}</HouseGalleryLabel>
           <HouseGallery />
         </Container>
       </SectionWrap>
@@ -222,16 +217,16 @@ export default function RenterProfilePage({
       <SectionWrap>
         <Container>
           <SectionHeader>
-            <SectionLabel>02 — Household &amp; lifestyle</SectionLabel>
-            <SectionH2>Who&apos;s moving in, and how we live.</SectionH2>
+            <SectionLabel>{t("renterProfile.lifestyle.eyebrow")}</SectionLabel>
+            <SectionH2>{t("renterProfile.lifestyle.title")}</SectionH2>
           </SectionHeader>
           <InfoCardGrid>
             {LIFESTYLE_CARDS.map((card) => (
-              <InfoCard key={card.tag} $span={card.span}>
+              <InfoCard key={card.id} $span={card.span}>
                 <InfoCardIcon>{card.icon}</InfoCardIcon>
-                <InfoCardTag>{card.tag}</InfoCardTag>
-                <InfoCardTitle>{card.title}</InfoCardTitle>
-                <InfoCardBody>{card.body}</InfoCardBody>
+                <InfoCardTag>{t(card.tagKey)}</InfoCardTag>
+                <InfoCardTitle>{t(card.titleKey)}</InfoCardTitle>
+                <InfoCardBody>{t(card.bodyKey)}</InfoCardBody>
               </InfoCard>
             ))}
           </InfoCardGrid>
@@ -242,20 +237,17 @@ export default function RenterProfilePage({
       <SectionWrap>
         <Container>
           <SectionHeader>
-            <SectionLabel>03 — Employment &amp; financial snapshot</SectionLabel>
-            <SectionH2>Stable income, ready documentation.</SectionH2>
+            <SectionLabel>{t("renterProfile.employment.eyebrow")}</SectionLabel>
+            <SectionH2>{t("renterProfile.employment.title")}</SectionH2>
           </SectionHeader>
           <HeroSub style={{ maxWidth: "680px", marginBottom: 0 }}>
-            I work full-time as a freelance software engineer for a Belgian
-            company. My income comfortably exceeds the standard 2x monthly
-            rent requirement, and I can provide a financial snapshot, recent
-            payslips, and bank statements immediately on request.
+            {t("renterProfile.employment.body")}
           </HeroSub>
           <EmploymentRow>
-            {EMPLOYMENT_ROWS.map((row) => (
-              <EmploymentItem key={row.label}>
-                <EmploymentLabel>{row.label}</EmploymentLabel>
-                <EmploymentValue>{row.value}</EmploymentValue>
+            {EMPLOYMENT_ROW_KEYS.map((row) => (
+              <EmploymentItem key={row.labelKey}>
+                <EmploymentLabel>{t(row.labelKey)}</EmploymentLabel>
+                <EmploymentValue>{t(row.valueKey)}</EmploymentValue>
               </EmploymentItem>
             ))}
           </EmploymentRow>
@@ -266,22 +258,21 @@ export default function RenterProfilePage({
       <SectionWrap>
         <Container>
           <SectionHeader>
-            <SectionLabel>04 — Rental history</SectionLabel>
-            <SectionH2>A known quantity, not a risk.</SectionH2>
+            <SectionLabel>{t("renterProfile.rentalHistory.eyebrow")}</SectionLabel>
+            <SectionH2>{t("renterProfile.rentalHistory.title")}</SectionH2>
           </SectionHeader>
           <RentalHistoryLayout>
             <HeroSub style={{ flex: "1 1 380px", maxWidth: "560px" }}>
-              We&apos;ve rented before — twice in Bratislava&apos;s Nivy area,
-              from 2022 to 2024 — before deciding to buy a house. We&apos;re
-              moving now for a change of scenery and to be closer to family
-              again. References from both previous landlords are available
-              on request.
+              {t("renterProfile.rentalHistory.body")}
             </HeroSub>
-            <div style={{ flex: "0 0 auto" }}>
-              <PhotoFrame $ratio="4 / 3" style={{ width: "200px" }}>
-                <PhotoLabel>photo — current home</PhotoLabel>
+            <RentalHistoryPhotoWrap>
+              <PhotoFrame $ratio="4 / 3" $filled>
+                <PhotoImg
+                  src="/renter-profile/house-front.jpg"
+                  alt={t("renterProfile.rentalHistory.photoAlt")}
+                />
               </PhotoFrame>
-            </div>
+            </RentalHistoryPhotoWrap>
           </RentalHistoryLayout>
         </Container>
       </SectionWrap>
@@ -290,15 +281,15 @@ export default function RenterProfilePage({
       <SectionWrap>
         <Container>
           <SectionHeader>
-            <SectionLabel>05 — What we&apos;re looking for</SectionLabel>
-            <SectionH2>So you can self-select in seconds.</SectionH2>
+            <SectionLabel>{t("renterProfile.lookingFor.eyebrow")}</SectionLabel>
+            <SectionH2>{t("renterProfile.lookingFor.title")}</SectionH2>
           </SectionHeader>
           <InfoCardGrid>
             {LOOKING_FOR_CARDS.map((card) => (
-              <InfoCard key={card.tag} $accent $span={card.span}>
+              <InfoCard key={card.id} $accent $span={card.span}>
                 <InfoCardIcon $accent>{card.icon}</InfoCardIcon>
-                <InfoCardTag $accent>{card.tag}</InfoCardTag>
-                <InfoCardTitle>{card.title}</InfoCardTitle>
+                <InfoCardTag $accent>{t(card.tagKey)}</InfoCardTag>
+                <InfoCardTitle>{t(card.titleKey)}</InfoCardTitle>
               </InfoCard>
             ))}
           </InfoCardGrid>
@@ -309,17 +300,15 @@ export default function RenterProfilePage({
       <SectionWrap>
         <Container>
           <SectionHeader>
-            <SectionLabel>06 — Documents ready</SectionLabel>
-            <SectionH2>Fast to work with.</SectionH2>
+            <SectionLabel>{t("renterProfile.documents.eyebrow")}</SectionLabel>
+            <SectionH2>{t("renterProfile.documents.title")}</SectionH2>
           </SectionHeader>
           <HeroSub style={{ maxWidth: "680px" }}>
-            Our full application packet is ready and can be sent by email as
-            soon as we&apos;re in touch. For privacy, documents are shared
-            per application rather than posted here.
+            {t("renterProfile.documents.body")}
           </HeroSub>
           <HeroTagRow style={{ marginBottom: 0 }}>
-            {DOCUMENTS_READY.map((doc) => (
-              <Tag key={doc}>✓ {doc}</Tag>
+            {DOCUMENTS_READY_KEYS.map((key) => (
+              <Tag key={key}>✓ {t(key)}</Tag>
             ))}
           </HeroTagRow>
         </Container>
@@ -328,12 +317,9 @@ export default function RenterProfilePage({
       {/* Contact */}
       <ContactSection>
         <Container>
-          <ContactSectionLabel>07 — Get in touch</ContactSectionLabel>
-          <ContactH2>Let&apos;s talk.</ContactH2>
-          <ContactSub>
-            Happy to answer questions, send documents, or arrange a viewing
-            whenever suits.
-          </ContactSub>
+          <ContactSectionLabel>{t("renterProfile.contact.eyebrow")}</ContactSectionLabel>
+          <ContactH2>{t("renterProfile.contact.title")}</ContactH2>
+          <ContactSub>{t("renterProfile.contact.subtitle")}</ContactSub>
           <ContactEmail href={`mailto:${RENTER_CONTACT.email}`}>
             {RENTER_CONTACT.email}
           </ContactEmail>
@@ -346,7 +332,7 @@ export default function RenterProfilePage({
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+              {t("renterProfile.contact.linkedin")}
             </BtnOutline>
           </ContactLinks>
         </Container>
@@ -354,9 +340,9 @@ export default function RenterProfilePage({
 
       <HireFooter>
         <HireFooterInner>
-          <span>gunnar.digital/renter-profile</span>
-          <span>Bratislava, Slovakia → Amsterdam area, NL</span>
-          <span>Available from September 2026</span>
+          <span>{t("renterProfile.footer.slug")}</span>
+          <span>{t("renterProfile.footer.route")}</span>
+          <span>{t("renterProfile.footer.availability")}</span>
         </HireFooterInner>
       </HireFooter>
     </PageWrapper>

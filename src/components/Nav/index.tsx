@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import type { MouseEvent as ReactMouseEvent } from "react";
+import PageSwitcher from "../PageSwitcher";
 import {
   NavBar,
+  LogoGroup,
   Logo,
   NavLinks,
   NavLink,
@@ -98,15 +100,18 @@ export default function Nav({ themeMode, onToggleTheme }: NavProps) {
   return (
     <>
       <NavBar>
-        <Logo
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault();
-            handleLink("hero");
-          }}
-        >
-          gunnar<span>.</span>digital
-        </Logo>
+        <LogoGroup>
+          <Logo
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              handleLink("hero");
+            }}
+          >
+            gunnar<span>.</span>digital
+          </Logo>
+          <PageSwitcher />
+        </LogoGroup>
 
         <NavLinks>
           <li>
