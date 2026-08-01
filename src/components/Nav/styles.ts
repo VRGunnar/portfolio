@@ -216,6 +216,12 @@ export const NavBar = styled.nav`
   }
 `;
 
+export const LogoGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+`;
+
 export const Logo = styled.a`
   font-family: ${theme.fonts.heading};
   font-weight: 700;

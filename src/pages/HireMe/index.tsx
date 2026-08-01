@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { MouseEvent as ReactMouseEvent } from "react";
+import AiWorkflowSection from "./components/AiWorkflowSection";
 import ArchitectureSection from "./components/ArchitectureSection";
 import CapabilitiesSection from "./components/CapabilitiesSection";
 import CloudSection from "./components/CloudSection";
@@ -82,6 +83,7 @@ export default function HireMe({ themeMode, onToggleTheme }: HireMeProps) {
           <ArchitectureSection />
           <CloudSection />
           <MindsetSection />
+          <AiWorkflowSection />
           <ExperienceSection />
           <StackSection />
           <WipSection />

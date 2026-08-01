@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import type { MouseEvent as ReactMouseEvent } from "react";
+import PageSwitcher from "../../../components/PageSwitcher";
 import {
   HireNav,
   HireNavInner,
   NavLogo,
-  NavSlug,
   NavLinks,
   NavContactBtn,
   NavThemeBtn,
@@ -37,7 +37,7 @@ export default function HireMeNav({
           <Link to="/">
             gunnar<span>.</span>digital
           </Link>
-          <NavSlug>/hire-me</NavSlug>
+          <PageSwitcher />
         </NavLogo>
         <NavLinks>
           <NavThemeBtn onClick={onToggleTheme} aria-label="Toggle theme">

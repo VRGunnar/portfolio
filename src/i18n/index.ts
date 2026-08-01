@@ -3,11 +3,11 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import en from "./locales/en";
 import sk from "./locales/sk";
+import nl from "./locales/nl";
 // import cs from "./locales/cs";
-// import nl from "./locales/nl";
 // import de from "./locales/de";
 
-const SUPPORTED_LANGS = ["en", "sk"] as const;
+const SUPPORTED_LANGS = ["en", "sk", "nl"] as const;
 type SupportedLang = (typeof SUPPORTED_LANGS)[number];
 
 function normalizeLang(value?: string): SupportedLang | undefined {
@@ -16,7 +16,7 @@ function normalizeLang(value?: string): SupportedLang | undefined {
 
   if (lower.startsWith("sk")) return "sk";
   // if (lower.startsWith("cs") || lower.startsWith("cz")) return "cs";
-  // if (lower.startsWith("nl")) return "nl";
+  if (lower.startsWith("nl")) return "nl";
   // if (lower.startsWith("de")) return "de";
   if (lower.startsWith("en")) return "en";
 
@@ -28,7 +28,7 @@ function detectFromTimeZone(): SupportedLang | undefined {
   const map: Record<string, SupportedLang> = {
     "Europe/Bratislava": "sk",
     // "Europe/Prague": "cs",
-    // "Europe/Amsterdam": "nl",
+    "Europe/Amsterdam": "nl",
     // "Europe/Berlin": "de",
     // "Europe/Vienna": "de",
     // "Europe/Zurich": "de",
@@ -58,8 +58,8 @@ i18n
     resources: {
       en: { translation: en },
       sk: { translation: sk },
+      nl: { translation: nl },
       // cs: { translation: cs },
-      // nl: { translation: nl },
       // de: { translation: de },
     },
     fallbackLng: "en",
