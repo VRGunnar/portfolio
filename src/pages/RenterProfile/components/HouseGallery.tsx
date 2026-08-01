@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   HouseGalleryViewport,
   HouseGalleryTrack,
@@ -25,6 +26,7 @@ function columnsForWidth(width: number) {
 }
 
 export default function HouseGallery() {
+  const { t } = useTranslation();
   const [columns, setColumns] = useState(4);
   const [tileWidth, setTileWidth] = useState(220);
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -79,16 +81,21 @@ export default function HouseGallery() {
         <HouseGalleryTrack $duration={HOUSE_PHOTOS.length * SECONDS_PER_PHOTO}>
           {displayPhotos.map((photo, i) => {
             const photoIndex = i % HOUSE_PHOTOS.length;
+            const caption = t(photo.captionKey);
             const isMoreTile = !hasScrolled && i === columns - 1 && hiddenCount > 0;
             return (
               <HouseThumbBtn
                 key={i}
                 $width={tileWidth}
                 onClick={() => setOpenIndex(photoIndex)}
-                aria-label={`Open photo: ${photo.caption}`}
+                aria-label={t("renterProfile.houseGallery.openPhotoAria", { caption })}
               >
-                <HouseThumbImg src={photo.src} alt={photo.caption} loading="lazy" />
-                {isMoreTile && <HouseThumbMore>+{hiddenCount} more</HouseThumbMore>}
+                <HouseThumbImg src={photo.src} alt={caption} loading="lazy" />
+                {isMoreTile && (
+                  <HouseThumbMore>
+                    {t("renterProfile.houseGallery.moreOverlay", { count: hiddenCount })}
+                  </HouseThumbMore>
+                )}
               </HouseThumbBtn>
             );
           })}
@@ -96,18 +103,21 @@ export default function HouseGallery() {
       </HouseGalleryViewport>
 
       <SeeAllBtn onClick={() => setOpenIndex(0)}>
-        See all {HOUSE_PHOTOS.length} photos →
+        {t("renterProfile.houseGallery.seeAll", { count: HOUSE_PHOTOS.length })}
       </SeeAllBtn>
 
       {openIndex !== null && (
         <LightboxOverlay onClick={() => setOpenIndex(null)}>
-          <LightboxCaption>{HOUSE_PHOTOS[openIndex].caption}</LightboxCaption>
-          <LightboxClose onClick={() => setOpenIndex(null)} aria-label="Close">
+          <LightboxCaption>{t(HOUSE_PHOTOS[openIndex].captionKey)}</LightboxCaption>
+          <LightboxClose
+            onClick={() => setOpenIndex(null)}
+            aria-label={t("renterProfile.houseGallery.closeAria")}
+          >
             ✕
           </LightboxClose>
           <LightboxNav
             $side="left"
-            aria-label="Previous photo"
+            aria-label={t("renterProfile.houseGallery.prevPhotoAria")}
             onClick={(e) => {
               e.stopPropagation();
               setOpenIndex(
@@ -119,12 +129,12 @@ export default function HouseGallery() {
           </LightboxNav>
           <LightboxImg
             src={HOUSE_PHOTOS[openIndex].src}
-            alt={HOUSE_PHOTOS[openIndex].caption}
+            alt={t(HOUSE_PHOTOS[openIndex].captionKey)}
             onClick={(e) => e.stopPropagation()}
           />
           <LightboxNav
             $side="right"
-            aria-label="Next photo"
+            aria-label={t("renterProfile.houseGallery.nextPhotoAria")}
             onClick={(e) => {
               e.stopPropagation();
               setOpenIndex((i) => (i === null ? i : (i + 1) % HOUSE_PHOTOS.length));

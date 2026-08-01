@@ -19,6 +19,7 @@ const SECTIONS = [
   { id: "hm-architecture", label: "Architecture" },
   { id: "hm-cloud", label: "Cloud & distributed" },
   { id: "hm-mindset", label: "How I work" },
+  { id: "hm-ai-workflow", label: "AI workflow" },
   { id: "hm-experience", label: "Experience" },
   { id: "hm-stack", label: "Tech stack" },
   { id: "hm-wip", label: "Currently working on" },

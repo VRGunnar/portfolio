@@ -224,9 +224,15 @@ export const EmploymentValue = styled.div`
 
 export const RentalHistoryLayout = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
+`;
+
+export const RentalHistoryPhotoWrap = styled.div`
+  flex: 1 1 360px;
+  max-width: 480px;
+  min-width: 260px;
 `;
 
 // ── HOUSE GALLERY ────────────────────────────────────────────────────────

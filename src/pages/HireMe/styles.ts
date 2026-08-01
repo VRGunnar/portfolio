@@ -712,6 +712,19 @@ export const LegendDot = styled.div<{ $color: string }>`
   flex-shrink: 0;
 `;
 
+// ── AI WORKFLOW ────────────────────────────────────────────────────────────
+
+export const AiFlowGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: rgba(74, 55, 40, 0.1);
+  border: 1px solid rgba(74, 55, 40, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+`;
+
 // ── MINDSET ────────────────────────────────────────────────────────────────
 
 export const MindsetGrid = styled.div`

@@ -29,7 +29,7 @@ export default function HireMeContactAndFooter({
       >
         <Container>
           <Reveal>
-            <ContactSectionLabel>09 - Let&apos;s talk</ContactSectionLabel>
+            <ContactSectionLabel>10 - Let&apos;s talk</ContactSectionLabel>
           </Reveal>
           <Reveal delay={0.08}>
             <ContactH2>Let&apos;s talk.</ContactH2>

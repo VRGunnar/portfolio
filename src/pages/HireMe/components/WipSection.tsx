@@ -18,7 +18,7 @@ export default function WipSection() {
       <Container>
         <SectionHeader>
           <Reveal>
-            <SectionLabel>08 - Currently working on</SectionLabel>
+            <SectionLabel>09 - Currently working on</SectionLabel>
           </Reveal>
           <Reveal delay={0.08}>
             <SectionH2>Current focus.</SectionH2>

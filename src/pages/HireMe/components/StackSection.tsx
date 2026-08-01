@@ -19,7 +19,7 @@ export default function StackSection() {
       <Container>
         <SectionHeader>
           <Reveal>
-            <SectionLabel>07 - Tech stack</SectionLabel>
+            <SectionLabel>08 - Tech stack</SectionLabel>
           </Reveal>
           <Reveal delay={0.08}>
             <SectionH2>Clean and strategic.</SectionH2>

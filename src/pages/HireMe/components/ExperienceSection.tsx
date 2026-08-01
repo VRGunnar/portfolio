@@ -22,7 +22,7 @@ export default function ExperienceSection() {
       <Container>
         <SectionHeader>
           <Reveal>
-            <SectionLabel>06 - Experience</SectionLabel>
+            <SectionLabel>07 - Experience</SectionLabel>
           </Reveal>
           <Reveal delay={0.08}>
             <SectionH2>Experience.</SectionH2>

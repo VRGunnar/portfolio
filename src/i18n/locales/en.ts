@@ -150,6 +150,162 @@ const en = {
     role: "Full Stack & Mobile Engineer",
     builtWith: "Built with Vite & React",
   },
+  renterProfile: {
+    nav: {
+      toggleLanguage: "Toggle language",
+      emailUs: "Email us",
+    },
+    hero: {
+      eyebrow: "Available from September 2026",
+      titleAccent: "Software engineer",
+      titleRest: "relocating to Amsterdam",
+      subtitle:
+        "Gunnar Van Remoortere — moving from Bratislava, Slovakia with my girlfriend of five years and our tiny Maltipoo. Looking for a long-term home from September / October 2026.",
+      tags: {
+        couple: "Couple",
+        dog: "Hypoallergenic dog, 3kg",
+        nonSmokers: "Non-smokers",
+        budget: "€1,500–2,000 / month",
+        area: "North-Holland",
+      },
+      emailUs: "Email us",
+      linkedin: "LinkedIn",
+      status:
+        "Full application packet — ID, contract, payslips, references — ready on request",
+      photoLabel: "photo — you, girlfriend & dog",
+      photoCaption: "Gunnar, my girlfriend & our Maltipoo",
+    },
+    household: {
+      sectionLabel: "Meet the household",
+      captions: {
+        gunnar: "Gunnar — software engineer",
+        karin: "Karin — 5 years together",
+        brix: "Brix — Maltipoo · 3kg · hypoallergenic",
+      },
+    },
+    about: {
+      eyebrow: "01 — About us",
+      title: "A bit about who we are.",
+      body: "Hi, I'm Gunnar. I'm a software engineer working full-time for a Belgian company (Summer Bash, Antwerp), currently based in Bratislava, Slovakia. Together with my girlfriend — together five years now — we're looking to relocate to the Amsterdam area. We currently own our own house near Bratislava, so we know how to take care of a home and treat it as our own. In our free time I work on personal software projects and stay active at the gym; she's just as happy pottering around the house or exploring somewhere new. We're looking for a place we can properly settle into and call home, not just a stopover.",
+      stats: {
+        years: { value: "5 yrs", label: "together as a couple" },
+        homeowners: { value: "Homeowners", label: "already, near Bratislava" },
+        weight: { value: "3kg", label: "hypoallergenic Maltipoo" },
+      },
+      galleryLabel: "Our current home, near Bratislava",
+    },
+    houseGallery: {
+      captions: {
+        livingRoom: "Living room",
+        exterior: "Garden & terrace",
+        kitchen: "Kitchen",
+        bedroom: "Bedroom",
+        bathroom: "Bathroom",
+        office: "Home office",
+      },
+      moreOverlay: "+{{count}} more",
+      seeAll: "See all {{count}} photos →",
+      openPhotoAria: "Open photo: {{caption}}",
+      closeAria: "Close",
+      prevPhotoAria: "Previous photo",
+      nextPhotoAria: "Next photo",
+    },
+    lifestyle: {
+      eyebrow: "02 — Household & lifestyle",
+      title: "Who's moving in, and how we live.",
+      cards: {
+        household: {
+          tag: "household",
+          title: "Couple",
+          body: "Just the two of us relocating together.",
+        },
+        pets: {
+          tag: "pets",
+          title: "One Maltipoo",
+          body: "3kg, hypoallergenic, doesn't shed. Well-trained and genuinely low-maintenance.",
+        },
+        smoking: {
+          tag: "smoking",
+          title: "Non-smokers",
+          body: "No smoking, indoors or out.",
+        },
+        workPattern: {
+          tag: "work pattern",
+          title: "Remote → hybrid",
+          body: "Currently fully remote, moving to hybrid / mostly in-office after relocating.",
+        },
+        vibe: {
+          tag: "vibe",
+          title: "Quiet, tidy, pleasant and respectful",
+          body: "We keep to ourselves, keep the place clean, and get along easily with neighbours.",
+        },
+      },
+    },
+    employment: {
+      eyebrow: "03 — Employment & financial snapshot",
+      title: "Stable income, ready documentation.",
+      body: "I work full-time as a software engineer for a Belgian company. My income comfortably exceeds the standard 2x monthly rent requirement (not counted my girlfriend's income), and I can provide a financial snapshot, recent payslips, and bank statements immediately on request.",
+      rows: {
+        employment: { label: "Employment", value: "Full-time contract" },
+        incomeVsRent: {
+          label: "Income vs. rent",
+          value: "Comfortably above 2x monthly rent",
+        },
+        documents: {
+          label: "Documents",
+          value: "Sent privately, on request only",
+        },
+      },
+    },
+    rentalHistory: {
+      eyebrow: "04 — Rental history",
+      title: "A known quantity, not a risk.",
+      body: "We've rented before — twice in Bratislava's Nivy area, from 2022 to 2024 — before deciding to buy a house. We're moving now for a change of scenery and to be closer to family again. References from both previous landlords are available on request.",
+      photoAlt: "Our current home",
+    },
+    lookingFor: {
+      eyebrow: "05 — What we're looking for",
+      title: "So you can self-select in seconds.",
+      cards: {
+        budget: { tag: "budget", title: "€1,500 – 2,000 / month" },
+        area: { tag: "area", title: "North-Holland" },
+        moveIn: { tag: "move-in", title: "September / October 2026" },
+        type: {
+          tag: "type",
+          title: "2-bed apartment or house, furnished preferred",
+        },
+        leaseLength: {
+          tag: "lease length",
+          title:
+            "Open to multiple years, depending on quality of the property and location",
+        },
+      },
+    },
+    documents: {
+      eyebrow: "06 — Documents ready",
+      title: "Fast to work with.",
+      body: "Our full application packet is ready and can be sent by email as soon as we're in touch. For privacy, documents are shared per application rather than posted here.",
+      list: {
+        id: "ID",
+        contract: "Employment contract",
+        payslips: "Recent payslips",
+        bank: "Bank statements",
+        references: "Previous landlord references",
+      },
+    },
+    contact: {
+      eyebrow: "07 — Get in touch",
+      title: "Let's talk.",
+      subtitle:
+        "Happy to answer questions, send documents, or arrange a viewing whenever suits.",
+      linkedin: "LinkedIn",
+    },
+    footer: {
+      slug: "gunnar.digital/renter-profile",
+      route: "Bratislava, Slovakia → Amsterdam area, NL",
+      availability: "Available from September 2026",
+    },
+  },
 };
 
 export default en;
