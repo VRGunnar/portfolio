@@ -16,6 +16,12 @@ const PAGES = [
   {
     path: "/",
     slug: "/",
+    label: "About me",
+    caption: "Who I am, what I stand for",
+  },
+  {
+    path: "/for-clients",
+    slug: "/for-clients",
     label: "For clients",
     caption: "Looking to build a product",
   },
