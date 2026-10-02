@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { MouseEvent as ReactMouseEvent } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import {
   PageWrapper,
   Container,
@@ -38,7 +38,6 @@ import {
   HeroLayout,
   PhotoFrame,
   PhotoImg,
-  PhotoLabel,
   PhotoCaption,
   GalleryGrid,
   StatStrip,
@@ -55,6 +54,7 @@ import {
   EmploymentItem,
   EmploymentLabel,
   EmploymentValue,
+  EmploymentBody,
   RentalHistoryLayout,
   RentalHistoryPhotoWrap,
   HouseGalleryLabel,
@@ -69,6 +69,7 @@ import {
   EMPLOYMENT_ROW_KEYS,
   LOOKING_FOR_CARDS,
   DOCUMENTS_READY_KEYS,
+  HERO_PHOTO,
 } from "./data";
 import type { ThemeMode } from "../../theme";
 
@@ -122,7 +123,7 @@ export default function RenterProfilePage({
       {/* Hero */}
       <HeroSection>
         <Container>
-          <HeroLayout>
+          <HeroLayout $single={!HERO_PHOTO}>
             <div>
               <HeroEyebrow>{t("renterProfile.hero.eyebrow")}</HeroEyebrow>
               <HeroH1>
@@ -153,12 +154,17 @@ export default function RenterProfilePage({
               </HeroStatus>
             </div>
 
-            <div>
-              <PhotoFrame>
-                <PhotoLabel>{t("renterProfile.hero.photoLabel")}</PhotoLabel>
-              </PhotoFrame>
-              <PhotoCaption>{t("renterProfile.hero.photoCaption")}</PhotoCaption>
-            </div>
+            {HERO_PHOTO && (
+              <div>
+                <PhotoFrame $filled>
+                  <PhotoImg
+                    src={HERO_PHOTO}
+                    alt={t("renterProfile.hero.photoCaption")}
+                  />
+                </PhotoFrame>
+                <PhotoCaption>{t("renterProfile.hero.photoCaption")}</PhotoCaption>
+              </div>
+            )}
           </HeroLayout>
         </Container>
       </HeroSection>
@@ -240,14 +246,25 @@ export default function RenterProfilePage({
             <SectionLabel>{t("renterProfile.employment.eyebrow")}</SectionLabel>
             <SectionH2>{t("renterProfile.employment.title")}</SectionH2>
           </SectionHeader>
-          <HeroSub style={{ maxWidth: "680px", marginBottom: 0 }}>
-            {t("renterProfile.employment.body")}
-          </HeroSub>
+          <EmploymentBody>
+            {(
+              t("renterProfile.employment.body", { returnObjects: true }) as string[]
+            ).map((_, idx) => (
+              <HeroSub key={idx} style={{ maxWidth: "680px" }}>
+                <Trans
+                  i18nKey={`renterProfile.employment.body.${idx}`}
+                  components={{ b: <b /> }}
+                />
+              </HeroSub>
+            ))}
+          </EmploymentBody>
           <EmploymentRow>
             {EMPLOYMENT_ROW_KEYS.map((row) => (
               <EmploymentItem key={row.labelKey}>
                 <EmploymentLabel>{t(row.labelKey)}</EmploymentLabel>
-                <EmploymentValue>{t(row.valueKey)}</EmploymentValue>
+                <EmploymentValue $highlight={row.highlight}>
+                  {t(row.valueKey)}
+                </EmploymentValue>
               </EmploymentItem>
             ))}
           </EmploymentRow>

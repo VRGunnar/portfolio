@@ -9,9 +9,9 @@ const cardBg = `color-mix(in srgb, ${theme.colors.linen} 78%, ${theme.colors.soi
 
 // ── HERO LAYOUT ──────────────────────────────────────────────────────────
 
-export const HeroLayout = styled.div`
+export const HeroLayout = styled.div<{ $single?: boolean }>`
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: ${({ $single }) => ($single ? "1fr" : "1.4fr 1fr")};
   gap: 3rem;
   align-items: start;
 
@@ -194,9 +194,9 @@ export const InfoCardBody = styled.p`
 // ── EMPLOYMENT ───────────────────────────────────────────────────────────
 
 export const EmploymentRow = styled.div`
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.75rem 2.5rem;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid ${cardBorder};
@@ -215,9 +215,32 @@ export const EmploymentLabel = styled.div`
   margin-bottom: 0.4rem;
 `;
 
-export const EmploymentValue = styled.div`
-  font-size: 0.92rem;
-  color: ${theme.colors.soil};
+export const EmploymentValue = styled.div<{ $highlight?: boolean }>`
+  font-size: ${(p) => (p.$highlight ? "1rem" : "0.92rem")};
+  font-weight: ${(p) => (p.$highlight ? 600 : 400)};
+  color: ${(p) => (p.$highlight ? theme.colors.accent : theme.colors.soil)};
+`;
+
+export const EmploymentBody = styled.div`
+  max-width: 680px;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  b {
+    font-weight: 600;
+    color: ${theme.colors.soil};
+    background: linear-gradient(
+      transparent 62%,
+      color-mix(in srgb, ${theme.colors.accent} 28%, transparent) 62%
+    );
+    padding: 0 2px;
+  }
 `;
 
 // ── RENTAL HISTORY ───────────────────────────────────────────────────────
