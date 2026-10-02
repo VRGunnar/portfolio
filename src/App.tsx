@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import HireMe from "./pages/HireMe";
 import CVPage from "./pages/CV";
 import RenterProfilePage from "./pages/RenterProfile";
+import Home from "./pages/Home";
 
 const THEME_STORAGE_KEY = "portfolio-theme-mode";
 
@@ -138,6 +139,12 @@ export default function App() {
       <Routes>
         <Route
           path="/"
+          element={
+            <Home themeMode={themeMode} onToggleTheme={toggleTheme} />
+          }
+        />
+        <Route
+          path="/for-clients"
           element={
             <PortfolioLayout
               themeMode={themeMode}

@@ -160,7 +160,7 @@ const nl = {
       titleAccent: "Software engineer",
       titleRest: "verhuist naar Amsterdam",
       subtitle:
-        "Gunnar Van Remoortere — verhuist vanuit Bratislava, Slowakije met mijn vriendin van vijf jaar en onze kleine Maltipoo. Op zoek naar een langdurige woning vanaf september / oktober 2026.",
+        "Gunnar Van Remoortere — verhuist vanuit Bratislava, Slowakije met mijn vriendin van zeven jaar en onze kleine Maltipoo. Op zoek naar een langdurige woning vanaf september / oktober 2026.",
       tags: {
         couple: "Stel",
         dog: "Hypoallergene hond, 3kg",
@@ -179,16 +179,16 @@ const nl = {
       sectionLabel: "Maak kennis met het huishouden",
       captions: {
         gunnar: "Gunnar — software engineer",
-        karin: "Karin — 5 jaar samen",
+        karin: "Karin — 7 jaar samen",
         brix: "Brix — Maltipoo · 3kg · hypoallergeen",
       },
     },
     about: {
       eyebrow: "01 — Over ons",
       title: "Een beetje over wie we zijn.",
-      body: "Hoi, ik ben Gunnar. Ik ben software engineer en werk fulltime voor een Belgisch bedrijf (Summer Bash, Antwerpen), momenteel woonachtig in Bratislava, Slowakije. Samen met mijn vriendin — inmiddels vijf jaar samen — willen we verhuizen naar de regio Amsterdam. We hebben momenteel zelf een huis vlakbij Bratislava, dus we weten hoe je een woning verzorgt en als je eigen huis behandelt. In mijn vrije tijd werk ik aan persoonlijke software-projecten en sport ik graag; zij is net zo blij met klussen in huis als met iets nieuws ontdekken. We zijn op zoek naar een plek waar we ons echt kunnen settelen en thuis kunnen noemen, geen tussenstop.",
+      body: "Hoi, ik ben Gunnar. Ik ben software engineer en werk fulltime voor een Belgisch bedrijf (Summer Bash, Antwerpen), momenteel woonachtig in Bratislava, Slowakije. Samen met mijn vriendin — inmiddels zeven jaar samen — willen we verhuizen naar de regio Amsterdam. We hebben momenteel zelf een huis vlakbij Bratislava, dus we weten hoe je een woning verzorgt en als je eigen huis behandelt.",
       stats: {
-        years: { value: "5 jaar", label: "samen als stel" },
+        years: { value: "7 jaar", label: "samen als stel" },
         homeowners: { value: "Huiseigenaren", label: "al, vlakbij Bratislava" },
         weight: { value: "3kg", label: "hypoallergene Maltipoo" },
       },
@@ -243,13 +243,40 @@ const nl = {
     },
     employment: {
       eyebrow: "03 — Werk & financieel overzicht",
-      title: "Stabiel inkomen, documentatie klaar.",
-      body: "Ik werk fulltime als software engineer voor een Belgisch bedrijf. Mijn inkomen ligt ruim boven de gebruikelijke eis van 2x de maandhuur (exclusief het inkomen van mijn vriendin), en ik kan direct op aanvraag een financieel overzicht, recente loonstroken en bankafschriften aanleveren.",
+      title: "Stabiel inkomen, contract al getekend.",
+      body: [
+        "Momenteel werk ik fulltime als software engineer voor een Belgisch bedrijf. Per <b>1 november 2026</b> start ik als System Engineer bij <b>DPG Media</b> in Amsterdam, met een bruto maandsalaris van <b>€ 5.000</b> plus <b>12% Mijn Keuze Budget</b> (waarvan 8% vakantiegeld). Daarmee ligt mijn inkomen alleen al <b>ruim boven 2x de maandhuur</b>.",
+        "Mijn vriendin verdient daarnaast <b>± € 2.900 bruto per maand</b>. Dat is een tijdelijke baan terwijl ze op zoek gaat naar een functie die op de lange termijn beter bij haar past.",
+        "Het arbeidsvoorwaardenvoorstel, recente loonstroken en bankafschriften kan ik <b>direct op aanvraag</b> aanleveren.",
+      ],
       rows: {
-        employment: { label: "Dienstverband", value: "Vast contract, fulltime" },
+        employer: {
+          label: "Werkgever",
+          value: "DPG Media, Amsterdam — in dienst per 1 november 2026",
+        },
+        employment: {
+          label: "Dienstverband",
+          value: "Fulltime (36 u/week), contract t/m 31 oktober 2027",
+        },
+        salary: {
+          label: "Bruto salaris",
+          value: "€ 5.000 per maand (schaal H, CAO Uitgeverijbedrijf)",
+        },
+        choiceBudget: {
+          label: "Mijn Keuze Budget",
+          value: "+12% van het brutoloon, incl. 8% vakantiegeld",
+        },
+        extras: {
+          label: "Overige voorwaarden",
+          value: "Winstdelingsregeling, pensioen via PGB, reiskostenvergoeding",
+        },
+        partnerIncome: {
+          label: "Inkomen vriendin",
+          value: "± € 2.900 bruto per maand (tijdelijke baan)",
+        },
         incomeVsRent: {
           label: "Inkomen vs. huur",
-          value: "Ruim boven 2x de maandhuur",
+          value: "Ruim boven 2x de maandhuur, op mijn inkomen alleen",
         },
         documents: {
           label: "Documenten",

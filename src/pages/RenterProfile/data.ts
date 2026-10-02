@@ -5,6 +5,10 @@ export const RENTER_CONTACT = {
   linkedin: "https://sk.linkedin.com/in/gunnar-van-remoortere-ab1267171",
 } as const;
 
+// Hero photo of the household. Leave null until a real photo is provided —
+// the hero then renders as a single column without the placeholder frame.
+export const HERO_PHOTO: string | null = null;
+
 export const RENTER_TAG_KEYS = [
   "renterProfile.hero.tags.couple",
   "renterProfile.hero.tags.dog",
@@ -116,9 +120,14 @@ export const LIFESTYLE_CARDS = [
 ] as const;
 
 export const EMPLOYMENT_ROW_KEYS = [
-  { labelKey: "renterProfile.employment.rows.employment.label", valueKey: "renterProfile.employment.rows.employment.value" },
-  { labelKey: "renterProfile.employment.rows.incomeVsRent.label", valueKey: "renterProfile.employment.rows.incomeVsRent.value" },
-  { labelKey: "renterProfile.employment.rows.documents.label", valueKey: "renterProfile.employment.rows.documents.value" },
+  { labelKey: "renterProfile.employment.rows.employer.label", valueKey: "renterProfile.employment.rows.employer.value", highlight: false },
+  { labelKey: "renterProfile.employment.rows.employment.label", valueKey: "renterProfile.employment.rows.employment.value", highlight: false },
+  { labelKey: "renterProfile.employment.rows.salary.label", valueKey: "renterProfile.employment.rows.salary.value", highlight: true },
+  { labelKey: "renterProfile.employment.rows.choiceBudget.label", valueKey: "renterProfile.employment.rows.choiceBudget.value", highlight: true },
+  { labelKey: "renterProfile.employment.rows.extras.label", valueKey: "renterProfile.employment.rows.extras.value", highlight: false },
+  { labelKey: "renterProfile.employment.rows.partnerIncome.label", valueKey: "renterProfile.employment.rows.partnerIncome.value", highlight: true },
+  { labelKey: "renterProfile.employment.rows.incomeVsRent.label", valueKey: "renterProfile.employment.rows.incomeVsRent.value", highlight: true },
+  { labelKey: "renterProfile.employment.rows.documents.label", valueKey: "renterProfile.employment.rows.documents.value", highlight: false },
 ] as const;
 
 export const LOOKING_FOR_CARDS = [

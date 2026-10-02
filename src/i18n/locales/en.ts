@@ -160,7 +160,7 @@ const en = {
       titleAccent: "Software engineer",
       titleRest: "relocating to Amsterdam",
       subtitle:
-        "Gunnar Van Remoortere — moving from Bratislava, Slovakia with my girlfriend of five years and our tiny Maltipoo. Looking for a long-term home from September / October 2026.",
+        "Gunnar Van Remoortere — moving from Bratislava, Slovakia with my girlfriend of seven years and our tiny Maltipoo. Looking for a long-term home from September / October 2026.",
       tags: {
         couple: "Couple",
         dog: "Hypoallergenic dog, 3kg",
@@ -179,16 +179,16 @@ const en = {
       sectionLabel: "Meet the household",
       captions: {
         gunnar: "Gunnar — software engineer",
-        karin: "Karin — 5 years together",
+        karin: "Karin — 7 years together",
         brix: "Brix — Maltipoo · 3kg · hypoallergenic",
       },
     },
     about: {
       eyebrow: "01 — About us",
       title: "A bit about who we are.",
-      body: "Hi, I'm Gunnar. I'm a software engineer working full-time for a Belgian company (Summer Bash, Antwerp), currently based in Bratislava, Slovakia. Together with my girlfriend — together five years now — we're looking to relocate to the Amsterdam area. We currently own our own house near Bratislava, so we know how to take care of a home and treat it as our own. In our free time I work on personal software projects and stay active at the gym; she's just as happy pottering around the house or exploring somewhere new. We're looking for a place we can properly settle into and call home, not just a stopover.",
+      body: "Hi, I'm Gunnar. I'm a software engineer working full-time for a Belgian company (Summer Bash, Antwerp), currently based in Bratislava, Slovakia. Together with my girlfriend — together seven years now — we're looking to relocate to the Amsterdam area. We currently own our own house near Bratislava, so we know how to take care of a home and treat it as our own.",
       stats: {
-        years: { value: "5 yrs", label: "together as a couple" },
+        years: { value: "7 yrs", label: "together as a couple" },
         homeowners: { value: "Homeowners", label: "already, near Bratislava" },
         weight: { value: "3kg", label: "hypoallergenic Maltipoo" },
       },
@@ -243,13 +243,40 @@ const en = {
     },
     employment: {
       eyebrow: "03 — Employment & financial snapshot",
-      title: "Stable income, ready documentation.",
-      body: "I work full-time as a software engineer for a Belgian company. My income comfortably exceeds the standard 2x monthly rent requirement (not counted my girlfriend's income), and I can provide a financial snapshot, recent payslips, and bank statements immediately on request.",
+      title: "Stable income, contract already signed.",
+      body: [
+        "I currently work full-time as a software engineer for a Belgian company. From <b>1 November 2026</b> I start as a System Engineer at <b>DPG Media</b> in Amsterdam, on a gross monthly salary of <b>€ 5,000</b> plus a <b>12% Mijn Keuze Budget</b> (including 8% holiday allowance). My income alone is <b>comfortably above 2x the monthly rent</b>.",
+        "On top of that, my girlfriend earns <b>approx. € 2,900 gross per month</b>. It's a temporary job while she looks for a role that suits her better long term.",
+        "I can provide the employment offer, recent payslips and bank statements <b>immediately on request</b>.",
+      ],
       rows: {
-        employment: { label: "Employment", value: "Full-time contract" },
+        employer: {
+          label: "Employer",
+          value: "DPG Media, Amsterdam — starting 1 November 2026",
+        },
+        employment: {
+          label: "Employment",
+          value: "Full-time (36 h/week), contract until 31 October 2027",
+        },
+        salary: {
+          label: "Gross salary",
+          value: "€ 5,000 per month (scale H, publishing-industry CAO)",
+        },
+        choiceBudget: {
+          label: "Mijn Keuze Budget",
+          value: "+12% of gross salary, incl. 8% holiday allowance",
+        },
+        extras: {
+          label: "Other benefits",
+          value: "Profit-sharing scheme, PGB pension, travel allowance",
+        },
+        partnerIncome: {
+          label: "Girlfriend's income",
+          value: "± € 2,900 gross per month (temporary job)",
+        },
         incomeVsRent: {
           label: "Income vs. rent",
-          value: "Comfortably above 2x monthly rent",
+          value: "Comfortably above 2x monthly rent, on my income alone",
         },
         documents: {
           label: "Documents",
